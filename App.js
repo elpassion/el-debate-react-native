@@ -1,14 +1,45 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+'use strict';
 
-export default class App extends React.Component {
+import { NavigatorIOS, StyleSheet, Text, View, Platform } from 'react-native';
+import React, { Component } from 'react';
+import { Font } from 'expo';
+import { NativeRouter, Route, Link } from 'react-router-native'
+import NavigationBar from 'react-native-navigation-bar';
+
+import HomePageIOS from './HomePageIOS';
+import HomePageAndroid from './HomePageAndroid';
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { fontLoaded: false };
+  }
+  async componentDidMount() {
+    await Font.loadAsync({
+      'helvetica-neue': require('./resources/fonts/HelveticaNeueLt.ttf')
+    });
+    this.setState({ fontLoaded: true });
+  }
+
   render() {
+    if (Platform.OS === 'ios')
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      this.state.fontLoaded ? (
+        <NavigatorIOS
+        initialRoute={{
+          component: HomePageIOS,
+          title: 'EL Debate',
+          barTintColor: '#4CC359',
+          titleTextColor: '#fff',
+          tintColor: '#fff',
+        }}
+        style={{flex: 1}}
+      />
+      ) : null
+    )
+    else
+    return (
+      null
     );
   }
 }
@@ -16,8 +47,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    top: 24
   },
 });
