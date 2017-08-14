@@ -39,7 +39,19 @@ export default class App extends Component {
     )
     else
     return (
-      null
+      this.state.fontLoaded ? (
+        <NativeRouter>
+          <View style={styles.container}>
+          <NavigationBar
+            title={'EL Debate'}
+            height={55}
+            titleColor={'#fff'}
+            backgroundColor={'#4CC359'}
+            />
+            <Route exact path='/' component={HomePageAndroid}/>
+          </View>
+        </NativeRouter>
+      ) : null
     );
   }
 }
@@ -47,6 +59,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    top: 24
+    top: 24,
   },
 });
