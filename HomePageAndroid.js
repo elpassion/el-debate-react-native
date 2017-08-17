@@ -17,11 +17,7 @@ export default class HomePage extends Component {
           Welcome to
         </Text>
         <Image source={require('./resources/images/logo.png')}/>
-        <TextInput
-          keyboardType = 'numeric'
-          maxLength = {5}
-          style={styles.pinInput}
-          placeholder='EL Debate PIN'/>
+
 
         <View style={styles.footer}>
 
@@ -34,6 +30,11 @@ export default class HomePage extends Component {
           Log in
           </Button>
         </View>
+        <TextInput
+          keyboardType = 'numeric'
+          maxLength = {5}
+          style={styles.pinInput}
+          placeholder='EL Debate PIN'/>
       </View>
     );
   }
@@ -50,10 +51,10 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     flex: 1,
-    top: 130,
+    top: 80,
   },
   backgroundImage: {
-    bottom: 50,
+    bottom: 0,
     width: '90%',
   },
   pinInput: {
@@ -62,15 +63,15 @@ const styles = StyleSheet.create({
     width: '80%',
     textAlign: 'center',
     marginRight: 5,
-    marginTop: 70,
-    fontSize: 18,
+    marginTop: 40,
+    fontSize: 20,
     color: '#8F8F8F',
   },
   pinButton: {
     alignSelf: 'center',
     height: 50,
     width: '80%',
-    bottom: 120,
+    bottom: 80,
     backgroundColor: '#4CC359',
     borderRadius: 0,
     borderColor: '#fff',
