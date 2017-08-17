@@ -1,6 +1,4 @@
-'use strict';
-
-import { NavigatorIOS, StyleSheet, Text, View, Platform } from 'react-native';
+import {  StyleSheet, Text, View, Platform } from 'react-native';
 import React, { Component } from 'react';
 import { Font } from 'expo';
 import { NativeRouter, Route, Link } from 'react-router-native'
@@ -22,24 +20,22 @@ export default class App extends Component {
   }
 
   render() {
-    if (Platform.OS === 'ios')
-    return (
-      this.state.fontLoaded ? (
-        <NavigatorIOS
-        initialRoute={{
-          component: HomePageIOS,
-          title: 'EL Debate',
-          barTintColor: '#4CC359',
-          titleTextColor: '#fff',
-          tintColor: '#fff',
-        }}
-        style={{flex: 1}}
-      />
-      ) : null
-    )
-    else
-    return (
-      this.state.fontLoaded ? (
+    if (this.state.fontLoaded && (Platform.OS === 'ios')) {
+      return (
+        <NativeRouter>
+          <View style={styles.container}>
+          <NavigationBar
+            title={'EL Debate'}
+            height={50}
+            titleColor={'#fff'}
+            backgroundColor={'#4CC359'}
+            />
+            <Route exact path='/' component={HomePageIOS}/>
+          </View>
+        </NativeRouter>
+      );
+    } else if (this.state.fontLoaded && (Platform.OS === 'android')) {
+      return (
         <NativeRouter>
           <View style={styles.container}>
           <NavigationBar
@@ -51,14 +47,16 @@ export default class App extends Component {
             <Route exact path='/' component={HomePageAndroid}/>
           </View>
         </NativeRouter>
-      ) : null
-    );
+      );
+    } else {
+      return (null);
+    }
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    top: 24,
+    top: (Platform.OS === 'ios') ? 0 : 24,
   },
 });
