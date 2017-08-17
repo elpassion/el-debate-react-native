@@ -1,5 +1,19 @@
 {
-  "expo": {
-    "sdkVersion": "19.0.0"
-  }
-}
+   "expo": {
+    "name": "EL Debate RN",
+    "version": "0.0.1",
+    "slug": "slug",
+    "sdkVersion": "19.0.0",
+    "ios": {
+      "bundleIdentifier": "com.el.debate.react",
+      "icon": "./resources/images/ios_icon.png"
+    },
+    "android": {
+      "package": "com.el.debate.react",
+      "icon": "./resources/images/android_icon.png"
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#4CC359"
+    }
+   }
+ }
