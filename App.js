@@ -24,11 +24,11 @@ export default class App extends Component {
       return (
         <NativeRouter>
           <View style={styles.container}>
-          <NavigationBar
-            title={'EL Debate'}
-            height={50}
-            titleColor={'#fff'}
-            backgroundColor={'#4CC359'}
+            <NavigationBar
+              title={'EL Debate'}
+              height={50}
+              titleColor={'#fff'}
+              backgroundColor={'#4CC359'}
             />
             <Route exact path='/' component={HomePageIOS}/>
           </View>
@@ -38,11 +38,11 @@ export default class App extends Component {
       return (
         <NativeRouter>
           <View style={styles.container}>
-          <NavigationBar
-            title={'EL Debate'}
-            height={55}
-            titleColor={'#fff'}
-            backgroundColor={'#4CC359'}
+            <NavigationBar
+              title={'EL Debate'}
+              height={55}
+              titleColor={'#fff'}
+              backgroundColor={'#4CC359'}
             />
             <Route exact path='/' component={HomePageAndroid}/>
           </View>
