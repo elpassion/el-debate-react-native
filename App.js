@@ -56,7 +56,6 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    top: (Platform.OS === 'ios') ? 0 : 24,
+    flex: 1
   },
 });
