@@ -6,6 +6,7 @@ import NavigationBar from 'react-native-navigation-bar';
 
 import HomePageIOS from './HomePageIOS';
 import HomePageAndroid from './HomePageAndroid';
+import DebateDetailsIOS from './DebateDetailsIOS';
 
 export default class App extends Component {
   constructor(props) {
@@ -31,6 +32,7 @@ export default class App extends Component {
               backgroundColor={'#4CC359'}
             />
             <Route exact path='/' component={HomePageIOS}/>
+            <Route path='/debate-details-ios' component={DebateDetailsIOS}/>
           </View>
         </NativeRouter>
       );

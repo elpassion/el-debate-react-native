@@ -17,10 +17,7 @@ export default class HomePage extends Component {
           Welcome to
         </Text>
         <Image source={require('./resources/images/logo.png')}/>
-
-
         <View style={styles.footer}>
-
           <Image source={require('./resources/images/backgroundimg.png')} style={styles.backgroundImage} />
           <Button
             onPress={() => {}}
