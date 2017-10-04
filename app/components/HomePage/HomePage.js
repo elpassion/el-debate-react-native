@@ -5,7 +5,8 @@ import {
   View,
   ActivityIndicator,
   Image,
-  Alert
+  Alert,
+  Platform
 } from 'react-native';
 import Button from 'apsl-react-native-button'
 import styles from './styles'
@@ -13,7 +14,7 @@ import { Redirect, Route } from "react-router-native";
 import NavigationBar from 'react-native-navigation-bar';
 import Api from '/app/api/Api'
 
-export default class HomePageIOS extends Component {
+export default class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,7 +50,7 @@ export default class HomePageIOS extends Component {
 
   render() {
     const DetailsRoute = () => (
-      this.state.isFetched ? <Redirect push to="/debate-details-ios"/> : null
+      this.state.isFetched ? <Redirect push to="/debate-details"/> : null
     )
     const CodeInput =
       this.state.isLoading ?
@@ -57,12 +58,14 @@ export default class HomePageIOS extends Component {
         <ActivityIndicator size='large'/>
       </View> :
       <TextInput
-        keyboardType = 'numeric'
+        keyboardType = {(Platform.OS === 'ios') ? 'default' : 'numeric'}
         maxLength = {5}
-        style={styles.pinInput}
+        style={(Platform.OS === 'ios') ? styles.iosPinInput : styles.androidPinInput}
         value={this.state.searchString}
         onChange={this._onSearchTextChanged}
-        placeholder='EL Debate PIN'/>;
+        placeholder='EL Debate PIN'
+        returnKeyType = 'done'
+        onSubmitEditing={this._onLoginPressed}/>;
     return (
       <View style={styles.navContainer}>
         <NavigationBar

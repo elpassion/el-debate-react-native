@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 
 export default styles = StyleSheet.create({
   description: {
@@ -14,13 +14,14 @@ export default styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     flex: 1,
-    top: 100,
+    top: (Platform.OS === 'ios') ? 100 : 70,
   },
   backgroundImage: {
-    bottom: 50,
-    width: '80%',
+    position: 'absolute',
+    bottom: (Platform.OS === 'ios') ? 50 : 0,
+    width: '85%',
   },
-  pinInput: {
+  iosPinInput: {
     bottom: 0,
     height: 40,
     width: '80%',
@@ -32,18 +33,28 @@ export default styles = StyleSheet.create({
     fontSize: 18,
     color: '#8F8F8F',
   },
+  androidPinInput: {
+    bottom: 0,
+    height: 60,
+    width: '80%',
+    textAlign: 'center',
+    marginRight: 5,
+    marginTop: 40,
+    fontSize: 20,
+    color: '#8F8F8F',
+  },
   pinButton: {
     alignSelf: 'center',
-    height: 40,
+    height: (Platform.OS === 'ios') ? 40 : 50,
     width: '80%',
-    bottom: 120,
+    bottom: (Platform.OS === 'ios') ? 120 : 80,
     backgroundColor: '#4CC359',
     borderRadius: 0,
     borderColor: '#fff',
   },
   footer: {
     position: 'absolute',
-    bottom: 0,
+    bottom: (Platform.OS === 'ios') ? 0 : 50,
     right: 0,
     left: 0,
     alignItems: 'center'

@@ -11,7 +11,7 @@ import {
 import NavigationBar from 'react-native-navigation-bar';
 import styles from './styles'
 
-export default class DebateDetailsIOS extends Component {
+export default class DebateDetails extends Component {
   render() {
     return (
       <View style={styles.navContainer}>
