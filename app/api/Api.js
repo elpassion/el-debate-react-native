@@ -1,8 +1,10 @@
+import { BASE_URL } from 'react-native-dotenv'
+
 export default class Api {
   static login (code: string) {
     const params = { code: code }
 
-    return fetch('http://el-debate.herokuapp.com/api/login', {
+    return fetch(BASE_URL + '/api/login', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
