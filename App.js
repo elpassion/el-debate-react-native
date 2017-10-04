@@ -2,11 +2,10 @@ import {  StyleSheet, Text, View, Platform } from 'react-native';
 import React, { Component } from 'react';
 import { Font } from 'expo';
 import { NativeRouter, Route, Link } from 'react-router-native'
-import NavigationBar from 'react-native-navigation-bar';
 
-import HomePageIOS from './HomePageIOS';
-import HomePageAndroid from './HomePageAndroid';
-import DebateDetailsIOS from './DebateDetailsIOS';
+import HomePageIOS from './app/components/HomePageIOS/HomePageIOS';
+import HomePageAndroid from './app/components/HomePageAndroid/HomePageAndroid';
+import DebateDetailsIOS from './app/components/DebateDetailsIOS/DebateDetailsIOS';
 
 export default class App extends Component {
   constructor(props) {
@@ -25,12 +24,6 @@ export default class App extends Component {
       return (
         <NativeRouter>
           <View style={styles.container}>
-            <NavigationBar
-              title={'EL Debate'}
-              height={50}
-              titleColor={'#fff'}
-              backgroundColor={'#4CC359'}
-            />
             <Route exact path='/' component={HomePageIOS}/>
             <Route path='/debate-details-ios' component={DebateDetailsIOS}/>
           </View>

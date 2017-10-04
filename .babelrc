@@ -4,5 +4,15 @@
     "development": {
       "plugins": ["transform-react-jsx-source"]
     }
-  }
+  },
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./"],
+      "alias": {
+        "test": "./test",
+        "underscore": "lodash"
+      },
+      "extensions": [".js"]
+    }]
+  ]
 }
