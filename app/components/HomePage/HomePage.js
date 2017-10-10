@@ -6,7 +6,8 @@ import {
   ActivityIndicator,
   Image,
   Alert,
-  Platform
+  Platform,
+  AsyncStorage
 } from 'react-native';
 import Button from 'apsl-react-native-button'
 import styles from './styles'
@@ -30,11 +31,13 @@ export default class HomePage extends Component {
       this.setState({ message: response.error });
     } else {
       this.setState({ isFetched: true })
+      AsyncStorage.setItem('authToken', response.auth_token)
     }
   };
 
   _onLoginPressed = () => {
     this.setState({ isLoading: true, message: '' });
+    AsyncStorage.setItem('code', this.state.searchString)
     Api.login(this.state.searchString)
       .then(response => response.json())
       .then(response => this._handleResponse(response))
@@ -47,6 +50,10 @@ export default class HomePage extends Component {
   _onSearchTextChanged = (event) => {
     this.setState({ searchString: event.nativeEvent.text });
   };
+
+  componentDidMount = () => {
+     AsyncStorage.getItem('code').then((value) => this.setState({ 'searchString': value }))
+   }
 
   render() {
     const DetailsRoute = () => (
