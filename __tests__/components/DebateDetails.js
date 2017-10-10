@@ -13,7 +13,6 @@ Enzyme.configure({ adapter: new Adapter() });
 it('renders correctly', () => {
   const wrapper = shallow(<DebateDetails />)
   expect(wrapper).toMatchSnapshot();
-  console.log(wrapper)
 });
 
 it('renders debate details component if isFetched is true on HomePage', () => {
