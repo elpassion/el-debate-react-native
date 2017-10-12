@@ -53,7 +53,7 @@ export default class HomePage extends Component {
 
   componentDidMount = () => {
      AsyncStorage.getItem('code').then((value) => this.setState({ 'searchString': value }))
-   }
+  }
 
   render() {
     const DetailsRoute = () => (

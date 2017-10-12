@@ -13,4 +13,14 @@ export default class Api {
       body: JSON.stringify(params)
     });
   }
+
+  static getDebate (auth_token: string) {
+    return fetch(BASE_URL + '/api/debate', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': auth_token
+      }
+    });
+  }
 }
