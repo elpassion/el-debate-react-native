@@ -86,7 +86,7 @@ export default class HomePage extends Component {
         <Text style={styles.description}>
           Welcome to
         </Text>
-        <Image source={require('/resources/images/logo.png')}/>
+        <Image style={styles.logoImage} source={require('/resources/images/logo.png')}/>
         {CodeInput}
         <View style={styles.footer}>
           <Image source={require('/resources/images/backgroundimg.png')} style={styles.backgroundImage} />

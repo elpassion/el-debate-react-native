@@ -21,6 +21,11 @@ export default styles = StyleSheet.create({
     bottom: (Platform.OS === 'ios') ? 50 : 0,
     width: '85%',
   },
+  logoImage: {
+    width: 106,
+    height: 50,
+    resizeMode: 'contain'
+  },
   iosPinInput: {
     bottom: 0,
     height: 40,
