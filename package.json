@@ -37,7 +37,11 @@
       "**/?(*.)(spec|test).js?(x)"
     ],
     "testPathIgnorePatterns": [
-      "/node_modules/"
+      "/node_modules/",
+      "/__tests__/setup/"
+    ],
+    "setupFiles": [
+      "./__tests__/setup/Setup.js"
     ],
     "preset": "react-native",
     "transformIgnorePatterns": [
