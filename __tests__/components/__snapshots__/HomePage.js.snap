@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <NavigationBar
+    backgroundColor="#4CC359"
+    height={50}
+    leftButtonTitle={null}
+    leftButtonTitleColor="#000"
+    rightButtonTitle={null}
+    rightButtonTitleColor="#000"
+    title="EL Debate"
+    titleColor="#fff"
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "top": 100,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#656565",
+          "fontFamily": "helvetica-neue",
+          "fontSize": 20,
+          "marginBottom": 20,
+          "textAlign": "center",
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#656565",
+          "fontFamily": "helvetica-neue",
+          "fontSize": 20,
+          "marginBottom": 20,
+          "textAlign": "center",
+        }
+      }
+    >
+      Welcome to
+    </Text>
+    <Image
+      source={1}
+    />
+    <TextInput
+      keyboardType="default"
+      maxLength={5}
+      onChange={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="EL Debate PIN"
+      returnKeyType="done"
+      style={
+        Object {
+          "borderBottomColor": "#C0C0C0",
+          "borderBottomWidth": 1,
+          "bottom": 0,
+          "color": "#8F8F8F",
+          "fontSize": 18,
+          "height": 40,
+          "marginRight": 5,
+          "marginTop": 40,
+          "textAlign": "center",
+          "width": "80%",
+        }
+      }
+      value=""
+    />
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+        }
+      }
+    >
+      <Image
+        source={1}
+        style={
+          Object {
+            "bottom": 50,
+            "position": "absolute",
+            "width": "85%",
+          }
+        }
+      />
+      <Button
+        onPress={[Function]}
+        style={
+          Object {
+            "alignSelf": "center",
+            "backgroundColor": "#4CC359",
+            "borderColor": "#fff",
+            "borderRadius": 0,
+            "bottom": 120,
+            "height": 40,
+            "width": "80%",
+          }
+        }
+        textStyle={
+          Object {
+            "color": "#fff",
+            "fontFamily": "helvetica-neue",
+            "fontSize": 14,
+          }
+        }
+      >
+        Log in
+      </Button>
+      <DetailsRoute />
+    </View>
+  </View>
+</View>
+`;
