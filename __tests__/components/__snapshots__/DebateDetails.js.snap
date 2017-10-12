@@ -154,6 +154,40 @@ exports[`renders correctly 1`] = `
     title="EL Debate"
     titleColor="#fff"
   />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "top": 100,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+    />
+  </View>
 </View>
 `;
 
