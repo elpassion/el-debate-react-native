@@ -18,6 +18,7 @@ export default class Api {
     return fetch(BASE_URL + '/api/debate', {
       method: 'GET',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': auth_token
       }
