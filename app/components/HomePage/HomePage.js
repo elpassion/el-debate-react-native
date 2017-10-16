@@ -14,6 +14,7 @@ import styles from './styles'
 import { Redirect, Route } from "react-router-native";
 import NavigationBar from 'react-native-navigation-bar';
 import Api from '/app/api/Api'
+import Keyboard from 'Keyboard';
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -22,7 +23,9 @@ export default class HomePage extends Component {
       isLoading: false,
       message: '',
       searchString: '',
-      isFetched: false
+      isFetched: false,
+      btnLocation: 120,
+      imgLocation: 0
     };
   }
 
@@ -51,7 +54,27 @@ export default class HomePage extends Component {
     this.setState({ searchString: event.nativeEvent.text });
   };
 
-  componentDidMount = () => {
+  componentWillMount() {
+    Keyboard.addListener('keyboardDidShow', this.keyboardDidShow.bind(this))
+    Keyboard.addListener('keyboardDidHide', this.keyboardDidHide.bind(this))
+  }
+
+  componentWillUnmount() {
+    Keyboard.removeListener('keyboardDidShow', (message) => console.log(message))
+    Keyboard.removeListener('keyboardDidHide', (message) => console.log(message))
+  }
+
+  keyboardDidShow(e) {
+    this.setState({btnLocation: e.endCoordinates.height + ((Platform.OS === 'ios') ? 120 : -200)})
+    this.setState({imgLocation: e.endCoordinates.height - 500})
+  }
+
+  keyboardDidHide(e) {
+    this.setState({btnLocation: 120})
+    this.setState({imgLocation: 0})
+  }
+
+  componentDidMount() {
      AsyncStorage.getItem('code').then((value) => this.setState({ 'searchString': value }))
   }
 
@@ -81,24 +104,37 @@ export default class HomePage extends Component {
           titleColor={'#fff'}
           backgroundColor={'#4CC359'}
         />
-      <View style={styles.container}>
-        <Text style={styles.description}>{this.state.message}</Text>
-        <Text style={styles.description}>
-          Welcome to
-        </Text>
-        <Image style={styles.logoImage} source={require('/resources/images/logo.png')}/>
-        {CodeInput}
-        <View style={styles.footer}>
-          <Image source={require('/resources/images/backgroundimg.png')} style={styles.backgroundImage} />
-          <Button
-            onPress={this._onLoginPressed}
-            style={styles.pinButton}
-            textStyle={{ color: '#fff', fontFamily: 'helvetica-neue', fontSize: 14 }}
-          >
-          Log in
-          </Button>
-          <DetailsRoute/>
-        </View>
+        <View style={styles.container}>
+          <View style={styles.main}>
+            <Text style={styles.description}>{this.state.message}</Text>
+            <Text style={styles.description}>
+              Welcome to
+            </Text>
+            <Image style={styles.logoImage} source={require('/resources/images/logo.png')}/>
+            {CodeInput}
+          </View>
+          <View style={styles.fotter}>
+            <Image source={require('/resources/images/backgroundimg.png')}
+                   style={{ bottom: (Platform.OS === 'ios') ? 0 : (this.state.imgLocation),
+                            width: '85%',
+                            alignSelf: 'center' }} />
+            <Button
+              onPress={this._onLoginPressed}
+              style={{ bottom: this.state.btnLocation,
+                       alignSelf: 'center',
+                       height: (Platform.OS === 'ios') ? 40 : 50,
+                       width: '80%',
+                       backgroundColor: '#4CC359',
+                       borderRadius: 0,
+                       borderColor: '#fff',}}
+                       textStyle={{ color: '#fff',
+                       fontFamily: 'helvetica-neue',
+                       fontSize: 14 }}
+            >
+            Log in
+            </Button>
+            <DetailsRoute/>
+          </View>
         </View>
       </View>
     );

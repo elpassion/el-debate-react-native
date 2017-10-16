@@ -12,14 +12,12 @@ export default styles = StyleSheet.create({
     flex: 1
   },
   container: {
-    alignItems: 'center',
     flex: 1,
     top: (Platform.OS === 'ios') ? 100 : 70,
   },
-  backgroundImage: {
-    position: 'absolute',
-    bottom: (Platform.OS === 'ios') ? 50 : 0,
-    width: '85%',
+  main: {
+    flex: 1,
+    alignItems: 'center',
   },
   logoImage: {
     width: 106,
@@ -48,18 +46,9 @@ export default styles = StyleSheet.create({
     fontSize: 20,
     color: '#8F8F8F',
   },
-  pinButton: {
-    alignSelf: 'center',
-    height: (Platform.OS === 'ios') ? 40 : 50,
-    width: '80%',
-    bottom: (Platform.OS === 'ios') ? 120 : 80,
-    backgroundColor: '#4CC359',
-    borderRadius: 0,
-    borderColor: '#fff',
-  },
   footer: {
     position: 'absolute',
-    bottom: (Platform.OS === 'ios') ? 0 : 50,
+    bottom: 0,
     right: 0,
     left: 0,
     alignItems: 'center'
