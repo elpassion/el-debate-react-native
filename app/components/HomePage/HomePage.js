@@ -7,7 +7,8 @@ import {
   Image,
   Alert,
   Platform,
-  AsyncStorage
+  AsyncStorage,
+  ScrollView
 } from 'react-native';
 import Button from 'apsl-react-native-button'
 import styles from './styles'
@@ -24,7 +25,7 @@ export default class HomePage extends Component {
       message: '',
       searchString: '',
       isFetched: false,
-      btnLocation: 120,
+      footerLocation: 0,
       imgLocation: 0
     };
   }
@@ -55,22 +56,22 @@ export default class HomePage extends Component {
   };
 
   componentWillMount() {
-    Keyboard.addListener('keyboardDidShow', this.keyboardDidShow.bind(this))
-    Keyboard.addListener('keyboardDidHide', this.keyboardDidHide.bind(this))
+    Keyboard.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
+    Keyboard.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
   }
 
   componentWillUnmount() {
-    Keyboard.removeListener('keyboardDidShow', (message) => console.log(message))
-    Keyboard.removeListener('keyboardDidHide', (message) => console.log(message))
+    Keyboard.removeListener('keyboardWillShow', (message) => console.log(message))
+    Keyboard.removeListener('keyboardWillHide', (message) => console.log(message))
   }
 
-  keyboardDidShow(e) {
-    this.setState({btnLocation: e.endCoordinates.height + ((Platform.OS === 'ios') ? 120 : -200)})
-    this.setState({imgLocation: e.endCoordinates.height - 500})
+  keyboardWillShow(e) {
+    this.setState({footerLocation: e.endCoordinates.height})
+    this.setState({imgLocation: -50})
   }
 
-  keyboardDidHide(e) {
-    this.setState({btnLocation: 120})
+  keyboardWillHide(e) {
+    this.setState({footerLocation: 0})
     this.setState({imgLocation: 0})
   }
 
@@ -88,7 +89,7 @@ export default class HomePage extends Component {
         <ActivityIndicator size='large'/>
       </View> :
       <TextInput
-        keyboardType = {(Platform.OS === 'ios') ? 'default' : 'numeric'}
+        keyboardType = 'numeric'
         maxLength = {5}
         style={(Platform.OS === 'ios') ? styles.iosPinInput : styles.androidPinInput}
         value={this.state.searchString}
@@ -105,33 +106,22 @@ export default class HomePage extends Component {
           backgroundColor={'#4CC359'}
         />
         <View style={styles.container}>
-          <View style={styles.main}>
+          <ScrollView style={styles.main}>
             <Text style={styles.description}>{this.state.message}</Text>
             <Text style={styles.description}>
               Welcome to
             </Text>
             <Image style={styles.logoImage} source={require('/resources/images/logo.png')}/>
             {CodeInput}
-          </View>
-          <View style={styles.fotter}>
+          </ScrollView>
+          <View style={{ bottom: this.state.footerLocation }}>
             <Image source={require('/resources/images/backgroundimg.png')}
-                   style={{ bottom: (Platform.OS === 'ios') ? 0 : (this.state.imgLocation),
-                            width: '85%',
+                   style={{ bottom: this.state.imgLocation,
                             alignSelf: 'center' }} />
-            <Button
-              onPress={this._onLoginPressed}
-              style={{ bottom: this.state.btnLocation,
-                       alignSelf: 'center',
-                       height: (Platform.OS === 'ios') ? 40 : 50,
-                       width: '80%',
-                       backgroundColor: '#4CC359',
-                       borderRadius: 0,
-                       borderColor: '#fff',}}
-                       textStyle={{ color: '#fff',
-                       fontFamily: 'helvetica-neue',
-                       fontSize: 14 }}
-            >
-            Log in
+            <Button onPress={this._onLoginPressed} style={styles.button}>
+              <Text style={styles.buttonText}>
+                Log in
+              </Text>
             </Button>
             <DetailsRoute/>
           </View>

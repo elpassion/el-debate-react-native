@@ -16,19 +16,20 @@ export default styles = StyleSheet.create({
     top: (Platform.OS === 'ios') ? 100 : 70,
   },
   main: {
-    flex: 1,
-    alignItems: 'center',
+    flex: 1
   },
   logoImage: {
     width: 106,
     height: 50,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
+    alignSelf: 'center'
   },
   iosPinInput: {
     bottom: 0,
     height: 40,
     width: '80%',
     textAlign: 'center',
+    alignSelf: 'center',
     marginRight: 5,
     marginTop: 40,
     borderBottomColor: '#C0C0C0',
@@ -41,16 +42,27 @@ export default styles = StyleSheet.create({
     height: 60,
     width: '80%',
     textAlign: 'center',
+    alignSelf: 'center',
     marginRight: 5,
     marginTop: 40,
     fontSize: 20,
     color: '#8F8F8F',
   },
-  footer: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    left: 0,
-    alignItems: 'center'
+  button: {
+    bottom: 120,
+    alignSelf: 'center',
+    height: (Platform.OS === 'ios') ? 40 : 50,
+    width: '80%',
+    backgroundColor: '#4CC359',
+    borderRadius: 0,
+    borderColor: '#fff'
+  },
+  backgroundImage: {
+
+  },
+  buttonText: {
+    fontFamily: 'helvetica-neue',
+    fontSize: 14,
+    color: '#fff'
   }
 })
