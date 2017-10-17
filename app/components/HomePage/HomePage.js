@@ -24,7 +24,8 @@ export default class HomePage extends Component {
       isLoading: false,
       message: '',
       searchString: '',
-      isFetched: false,
+      authToken: '',
+      code: '',
       footerLocation: 0,
       imgLocation: 0
     };
@@ -34,22 +35,30 @@ export default class HomePage extends Component {
     if (response.error) {
       this.setState({ message: response.error });
     } else {
-      this.setState({ isFetched: true })
       AsyncStorage.setItem('authToken', response.auth_token)
+      this.props.history.push('/debate-details')
     }
   };
 
   _onLoginPressed = () => {
     this.setState({ isLoading: true, message: '' });
-    AsyncStorage.setItem('code', this.state.searchString)
+    if (this.state.authToken && (this.state.code === this.state.searchString)) {
+      this.props.history.push('/debate-details')
+    } else {
+      AsyncStorage.setItem('code', this.state.searchString)
+      this._loginToDebate()
+    }
+    this.setState({ isLoading: false });
+  };
+
+  _loginToDebate = () => {
     Api.login(this.state.searchString)
       .then(response => response.json())
       .then(response => this._handleResponse(response))
       .catch(error =>
         Alert.alert('Something went wrong' + error)
     );
-    this.setState({ isLoading: false });
-  };
+  }
 
   _onSearchTextChanged = (event) => {
     this.setState({ searchString: event.nativeEvent.text });
@@ -76,13 +85,11 @@ export default class HomePage extends Component {
   }
 
   componentDidMount() {
-     AsyncStorage.getItem('code').then((value) => this.setState({ 'searchString': value }))
+    AsyncStorage.getItem('code').then((value) => this.setState({ 'searchString': value, 'code': value }))
+    AsyncStorage.getItem('authToken').then((value) => this.setState({ 'authToken': value }))
   }
 
   render() {
-    const DetailsRoute = () => (
-      this.state.isFetched ? <Redirect push to="/debate-details"/> : null
-    )
     const CodeInput =
       this.state.isLoading ?
       <View style={{marginTop: 40}}>
@@ -126,7 +133,6 @@ export default class HomePage extends Component {
                 Log in
               </Text>
             </Button>
-            <DetailsRoute/>
           </View>
         </View>
       </View>
