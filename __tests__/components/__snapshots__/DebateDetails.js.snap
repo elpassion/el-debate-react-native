@@ -21,78 +21,102 @@ exports[`DebateDetails 1`] = `
   <View
     style={
       Object {
-        "alignItems": "center",
         "flex": 1,
         "top": 100,
       }
     }
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
+    <ScrollViewMock
       style={
         Object {
-          "color": "#656565",
-          "fontFamily": "helvetica-neue",
-          "fontSize": 20,
-          "marginBottom": 20,
-          "textAlign": "center",
-        }
-      }
-    />
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#656565",
-          "fontFamily": "helvetica-neue",
-          "fontSize": 20,
-          "marginBottom": 20,
-          "textAlign": "center",
+          "flex": 1,
         }
       }
     >
-      Welcome to
-    </Text>
-    <Image
-      source={1}
-    />
-    <TextInput
-      keyboardType="default"
-      maxLength={5}
-      onChange={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="EL Debate PIN"
-      returnKeyType="done"
-      style={
-        Object {
-          "borderBottomColor": "#C0C0C0",
-          "borderBottomWidth": 1,
-          "bottom": 0,
-          "color": "#8F8F8F",
-          "fontSize": 18,
-          "height": 40,
-          "marginRight": 5,
-          "marginTop": 40,
-          "textAlign": "center",
-          "width": "80%",
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#656565",
+            "fontFamily": "helvetica-neue",
+            "fontSize": 20,
+            "marginBottom": 20,
+            "textAlign": "center",
+          }
         }
-      }
-      value=""
-    />
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#656565",
+            "fontFamily": "helvetica-neue",
+            "fontSize": 20,
+            "marginBottom": 20,
+            "textAlign": "center",
+          }
+        }
+      >
+        Welcome to
+      </Text>
+      <Image
+        source={1}
+        style={
+          Object {
+            "alignSelf": "center",
+            "height": 50,
+            "resizeMode": "contain",
+            "width": 106,
+          }
+        }
+      />
+      <View>
+        <TextInput
+          keyboardType="numeric"
+          maxLength={5}
+          onChange={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="EL Debate PIN"
+          returnKeyType="done"
+          style={
+            Object {
+              "alignSelf": "center",
+              "borderBottomColor": "#C0C0C0",
+              "borderBottomWidth": 1,
+              "bottom": 0,
+              "color": "#8F8F8F",
+              "fontSize": 18,
+              "height": 40,
+              "marginRight": 5,
+              "marginTop": 40,
+              "textAlign": "center",
+              "width": "80%",
+            }
+          }
+          value=""
+        />
+        <Image
+          source={1}
+          style={
+            Object {
+              "bottom": 30,
+              "left": 45,
+              "position": "relative",
+            }
+          }
+        />
+      </View>
+    </ScrollViewMock>
     <View
       style={
         Object {
-          "alignItems": "center",
           "bottom": 0,
-          "left": 0,
-          "position": "absolute",
-          "right": 0,
         }
       }
     >
@@ -100,9 +124,8 @@ exports[`DebateDetails 1`] = `
         source={1}
         style={
           Object {
-            "bottom": 50,
-            "position": "absolute",
-            "width": "85%",
+            "alignSelf": "center",
+            "bottom": 0,
           }
         }
       />
@@ -119,15 +142,22 @@ exports[`DebateDetails 1`] = `
             "width": "80%",
           }
         }
-        textStyle={
-          Object {
-            "color": "#fff",
-            "fontFamily": "helvetica-neue",
-            "fontSize": 14,
-          }
-        }
       >
-        Log in
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#fff",
+              "fontFamily": "helvetica-neue",
+              "fontSize": 14,
+            }
+          }
+        >
+          Log in
+        </Text>
       </Button>
       <DetailsRoute />
     </View>
@@ -212,78 +242,102 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
   <View
     style={
       Object {
-        "alignItems": "center",
         "flex": 1,
         "top": 100,
       }
     }
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
+    <ScrollViewMock
       style={
         Object {
-          "color": "#656565",
-          "fontFamily": "helvetica-neue",
-          "fontSize": 20,
-          "marginBottom": 20,
-          "textAlign": "center",
-        }
-      }
-    />
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#656565",
-          "fontFamily": "helvetica-neue",
-          "fontSize": 20,
-          "marginBottom": 20,
-          "textAlign": "center",
+          "flex": 1,
         }
       }
     >
-      Welcome to
-    </Text>
-    <Image
-      source={1}
-    />
-    <TextInput
-      keyboardType="default"
-      maxLength={5}
-      onChange={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="EL Debate PIN"
-      returnKeyType="done"
-      style={
-        Object {
-          "borderBottomColor": "#C0C0C0",
-          "borderBottomWidth": 1,
-          "bottom": 0,
-          "color": "#8F8F8F",
-          "fontSize": 18,
-          "height": 40,
-          "marginRight": 5,
-          "marginTop": 40,
-          "textAlign": "center",
-          "width": "80%",
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#656565",
+            "fontFamily": "helvetica-neue",
+            "fontSize": 20,
+            "marginBottom": 20,
+            "textAlign": "center",
+          }
         }
-      }
-      value=""
-    />
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#656565",
+            "fontFamily": "helvetica-neue",
+            "fontSize": 20,
+            "marginBottom": 20,
+            "textAlign": "center",
+          }
+        }
+      >
+        Welcome to
+      </Text>
+      <Image
+        source={1}
+        style={
+          Object {
+            "alignSelf": "center",
+            "height": 50,
+            "resizeMode": "contain",
+            "width": 106,
+          }
+        }
+      />
+      <View>
+        <TextInput
+          keyboardType="numeric"
+          maxLength={5}
+          onChange={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="EL Debate PIN"
+          returnKeyType="done"
+          style={
+            Object {
+              "alignSelf": "center",
+              "borderBottomColor": "#C0C0C0",
+              "borderBottomWidth": 1,
+              "bottom": 0,
+              "color": "#8F8F8F",
+              "fontSize": 18,
+              "height": 40,
+              "marginRight": 5,
+              "marginTop": 40,
+              "textAlign": "center",
+              "width": "80%",
+            }
+          }
+          value=""
+        />
+        <Image
+          source={1}
+          style={
+            Object {
+              "bottom": 30,
+              "left": 45,
+              "position": "relative",
+            }
+          }
+        />
+      </View>
+    </ScrollViewMock>
     <View
       style={
         Object {
-          "alignItems": "center",
           "bottom": 0,
-          "left": 0,
-          "position": "absolute",
-          "right": 0,
         }
       }
     >
@@ -291,9 +345,8 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
         source={1}
         style={
           Object {
-            "bottom": 50,
-            "position": "absolute",
-            "width": "85%",
+            "alignSelf": "center",
+            "bottom": 0,
           }
         }
       />
@@ -310,15 +363,22 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
             "width": "80%",
           }
         }
-        textStyle={
-          Object {
-            "color": "#fff",
-            "fontFamily": "helvetica-neue",
-            "fontSize": 14,
-          }
-        }
       >
-        Log in
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#fff",
+              "fontFamily": "helvetica-neue",
+              "fontSize": 14,
+            }
+          }
+        >
+          Log in
+        </Text>
       </Button>
       <DetailsRoute />
     </View>
