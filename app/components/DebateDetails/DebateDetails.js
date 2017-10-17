@@ -7,7 +7,8 @@ import {
   FlatList,
   Text,
   AsyncStorage,
-  Alert
+  Alert,
+  ScrollView
 } from 'react-native';
 
 import NavigationBar from 'react-native-navigation-bar';
@@ -58,20 +59,40 @@ export default class DebateDetails extends Component {
           leftButtonTitleColor={'#fff'}
           onLeftButtonPress={() => this.props.history.goBack()}
         />
-        <View style={styles.container}>
-          <Text>
-            {this.state.topic}
-          </Text>
-          <Text>
-            {this.state.positiveAnswer}
-          </Text>
-          <Text>
-            {this.state.neutralAnswer}
-          </Text>
-          <Text>
-            {this.state.negativeAnswer}
-          </Text>
+        <View style={styles.footer}>
+          <Image source={require('/resources/images/backgroundimg.png')} style={styles.backgroundImage} />
         </View>
+        <ScrollView style={styles.container}>
+          <Text style={styles.description}>
+            Our debate is about:
+          </Text>
+          <View style={styles.topicBox}>
+            <Text style={styles.topic}>
+              {this.state.topic}
+            </Text>
+          </View>
+          <Text style={styles.description}>
+            Choose your side with one of the following:
+          </Text>
+          <View style={styles.answerBox}>
+            <Text style={styles.positiveAnswer}>
+              {this.state.positiveAnswer}
+            </Text>
+          </View>
+          <View style={styles.answerBox}>
+            <Text style={styles.negativeAnswer}>
+              {this.state.negativeAnswer}
+            </Text>
+          </View>
+          <View style={styles.answerBox}>
+            <Text style={styles.neutralAnswer}>
+              {this.state.neutralAnswer}
+            </Text>
+          </View>
+          <Text style={styles.description}>
+            Remember that you can change your mind before debate ends, thats why we are here!
+          </Text>
+        </ScrollView>
       </View>
     );
   }
