@@ -61,8 +61,8 @@ export default class HomePage extends Component {
   }
 
   componentWillUnmount() {
-    Keyboard.removeListener('keyboardWillShow', (message) => console.log(message))
-    Keyboard.removeListener('keyboardWillHide', (message) => console.log(message))
+    Keyboard.removeAllListeners('keyboardWillShow', (message) => console.log(message))
+    Keyboard.removeAllListeners('keyboardWillHide', (message) => console.log(message))
   }
 
   keyboardWillShow(e) {
