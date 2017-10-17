@@ -61,5 +61,10 @@ export default styles = StyleSheet.create({
     fontFamily: 'helvetica-neue',
     fontSize: 14,
     color: '#fff'
+  },
+  keyIcon: {
+    position: 'relative',
+    left: (Platform.OS === 'ios') ? 45 : 55,
+    bottom: (Platform.OS === 'ios') ? 30 : 40
   }
 })

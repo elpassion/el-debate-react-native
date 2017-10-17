@@ -88,15 +88,18 @@ export default class HomePage extends Component {
       <View style={{marginTop: 40}}>
         <ActivityIndicator size='large'/>
       </View> :
-      <TextInput
-        keyboardType = 'numeric'
-        maxLength = {5}
-        style={(Platform.OS === 'ios') ? styles.iosPinInput : styles.androidPinInput}
-        value={this.state.searchString}
-        onChange={this._onSearchTextChanged}
-        placeholder='EL Debate PIN'
-        returnKeyType = 'done'
-        onSubmitEditing={this._onLoginPressed}/>;
+      <View>
+        <TextInput
+          keyboardType = 'numeric'
+          maxLength = {5}
+          style={(Platform.OS === 'ios') ? styles.iosPinInput : styles.androidPinInput}
+          value={this.state.searchString}
+          onChange={this._onSearchTextChanged}
+          placeholder='EL Debate PIN'
+          returnKeyType = 'done'
+          onSubmitEditing={this._onLoginPressed}/>
+          <Image style={styles.keyIcon} source={require('/resources/images/keyicon.png')}/>
+      </View>
     return (
       <View style={styles.navContainer}>
         <NavigationBar
