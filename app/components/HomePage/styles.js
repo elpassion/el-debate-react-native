@@ -57,9 +57,6 @@ export default styles = StyleSheet.create({
     borderRadius: 0,
     borderColor: '#fff'
   },
-  backgroundImage: {
-
-  },
   buttonText: {
     fontFamily: 'helvetica-neue',
     fontSize: 14,
