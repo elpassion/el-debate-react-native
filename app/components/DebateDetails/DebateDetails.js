@@ -78,16 +78,19 @@ export default class DebateDetails extends Component {
             <Text style={styles.positiveAnswer}>
               {this.state.positiveAnswer}
             </Text>
+            <Image source={require('/resources/images/PositiveIcon.png')} style={styles.positiveAnswerIcon}/>
           </View>
           <View style={styles.answerBox}>
             <Text style={styles.negativeAnswer}>
               {this.state.negativeAnswer}
             </Text>
+            <Image source={require('/resources/images/NegativeIcon.png')} style={styles.negativeAnswerIcon}/>
           </View>
           <View style={styles.answerBox}>
             <Text style={styles.neutralAnswer}>
               {this.state.neutralAnswer}
             </Text>
+            <Image source={require('/resources/images/NeutralIcon.png')} style={styles.neutralAnswerIcon}/>
           </View>
           <Text style={styles.description}>
             Remember that you can change your mind before debate ends, thats why we are here!

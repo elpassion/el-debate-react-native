@@ -12,7 +12,7 @@ export default StyleSheet.create({
     marginLeft: 20,
     marginBottom: 20,
     fontSize: 12,
-    fontFamily: 'helvetica-neue',
+    fontFamily: 'helvetica-neue-lt',
     color: '#B8B8B8',
     backgroundColor: 'transparent'
   },
@@ -21,47 +21,63 @@ export default StyleSheet.create({
     justifyContent: 'center',
     width: '90%',
     height: 100,
-    borderColor: 'gray',
+    borderColor: 'rgba(0, 0, 0, 0.3)',
     borderRadius: 5,
     borderStyle: 'solid',
-    borderWidth: 0.3,
-    marginBottom: 20
+    borderWidth: 0.08,
+    marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 1, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 2,
   },
   topic: {
     alignSelf: 'center',
     fontSize: 24,
-    fontFamily: 'helvetica-neue',
+    fontFamily: 'helvetica-neue-md',
     color: '#4A4A4A'
   },
   answerBox: {
     alignSelf: 'center',
-    justifyContent: 'center',
     width: '90%',
     height: 60,
     backgroundColor: 'white',
-    borderColor: 'gray',
+    borderColor: 'rgba(0, 0, 0, 0.3)',
     borderRadius: 5,
     borderStyle: 'solid',
-    borderWidth: 0.3,
-    marginBottom: 20
+    borderWidth: 0.08,
+    marginBottom: 20,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    shadowColor: '#000',
+    shadowOffset: { width: 1, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 2,
   },
   positiveAnswer: {
     marginLeft: 20,
+    marginTop: 15,
     fontSize: 24,
-    fontFamily: 'helvetica-neue',
-    color: '#0098E3'
+    fontFamily: 'helvetica-neue-lt',
+    color: '#0098E3',
+    backgroundColor: 'transparent'
   },
   negativeAnswer: {
     marginLeft: 20,
+    marginTop: 15,
     fontSize: 24,
-    fontFamily: 'helvetica-neue',
-    color: '#E44043'
+    fontFamily: 'helvetica-neue-lt',
+    color: '#E44043',
+    backgroundColor: 'transparent'
   },
   neutralAnswer: {
     marginLeft: 20,
+    marginTop: 15,
     fontSize: 24,
-    fontFamily: 'helvetica-neue',
-    color: '#8F8F8F'
+    fontFamily: 'helvetica-neue-lt',
+    color: '#8F8F8F',
+    backgroundColor: 'transparent'
   },
   footer: {
     position: 'absolute',
@@ -72,5 +88,17 @@ export default StyleSheet.create({
   backgroundImage: {
     alignSelf: 'center',
     bottom: -30
+  },
+  positiveAnswerIcon: {
+    marginRight: 20,
+    marginTop: 16
+  },
+  negativeAnswerIcon: {
+    marginRight: 20,
+    marginTop: 20
+  },
+  neutralAnswerIcon: {
+    marginRight: 20,
+    marginTop: 15
   }
 })
