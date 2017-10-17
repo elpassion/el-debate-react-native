@@ -1,4 +1,4 @@
-import {  StyleSheet, Text, View, Platform } from 'react-native';
+import { StyleSheet, Text, View, Platform, StatusBar } from 'react-native';
 import React, { Component } from 'react';
 import { Font } from 'expo';
 import { NativeRouter, Route, Link } from 'react-router-native'
@@ -10,6 +10,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = { fontLoaded: false };
+    StatusBar.setBarStyle('light-content', true);
   }
   async componentDidMount() {
     await Font.loadAsync({
