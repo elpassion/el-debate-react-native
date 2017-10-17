@@ -6,13 +6,14 @@ export default StyleSheet.create({
   },
   container: {
     flex: 1,
-    top: (Platform.OS === 'ios') ? 85 : 55,
+    top: (Platform.OS === 'ios') ? 85 : 75,
   },
   description: {
     marginLeft: 20,
+    marginRight: 20,
     marginBottom: 20,
     fontSize: 12,
-    fontFamily: 'helvetica-neue-lt',
+    fontFamily: 'helvetica-neue-md',
     color: '#B8B8B8',
     backgroundColor: 'transparent'
   },
@@ -20,11 +21,11 @@ export default StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     width: '90%',
-    height: 100,
+    height: 120,
     borderColor: 'rgba(0, 0, 0, 0.3)',
     borderRadius: 5,
     borderStyle: 'solid',
-    borderWidth: 0.08,
+    borderWidth: (Platform.OS === 'ios') ? 0.08 : 0.3,
     marginBottom: 20,
     shadowColor: '#000',
     shadowOffset: { width: 1, height: 2 },
@@ -33,6 +34,8 @@ export default StyleSheet.create({
   },
   topic: {
     alignSelf: 'center',
+    marginLeft: 20,
+    marginRight: 20,
     fontSize: 24,
     fontFamily: 'helvetica-neue-md',
     color: '#4A4A4A'
@@ -45,7 +48,7 @@ export default StyleSheet.create({
     borderColor: 'rgba(0, 0, 0, 0.3)',
     borderRadius: 5,
     borderStyle: 'solid',
-    borderWidth: 0.08,
+    borderWidth: (Platform.OS === 'ios') ? 0.08 : 0.3,
     marginBottom: 20,
     flex: 1,
     flexDirection: 'row',
@@ -57,7 +60,7 @@ export default StyleSheet.create({
   },
   positiveAnswer: {
     marginLeft: 20,
-    marginTop: 15,
+    marginTop: (Platform.OS === 'ios') ? 15 : 18,
     fontSize: 24,
     fontFamily: 'helvetica-neue-lt',
     color: '#0098E3',
@@ -65,7 +68,7 @@ export default StyleSheet.create({
   },
   negativeAnswer: {
     marginLeft: 20,
-    marginTop: 15,
+    marginTop: (Platform.OS === 'ios') ? 15 : 18,
     fontSize: 24,
     fontFamily: 'helvetica-neue-lt',
     color: '#E44043',
@@ -73,7 +76,7 @@ export default StyleSheet.create({
   },
   neutralAnswer: {
     marginLeft: 20,
-    marginTop: 15,
+    marginTop: (Platform.OS === 'ios') ? 15 : 18,
     fontSize: 24,
     fontFamily: 'helvetica-neue-lt',
     color: '#8F8F8F',
@@ -91,11 +94,11 @@ export default StyleSheet.create({
   },
   positiveAnswerIcon: {
     marginRight: 20,
-    marginTop: 16
+    marginTop: (Platform.OS === 'ios') ? 15 : 16
   },
   negativeAnswerIcon: {
     marginRight: 20,
-    marginTop: 20
+    marginTop: (Platform.OS === 'ios') ? 17 : 20
   },
   neutralAnswerIcon: {
     marginRight: 20,

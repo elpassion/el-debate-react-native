@@ -221,10 +221,11 @@ exports[`renders correctly 1`] = `
         Object {
           "backgroundColor": "transparent",
           "color": "#B8B8B8",
-          "fontFamily": "helvetica-neue-lt",
+          "fontFamily": "helvetica-neue-md",
           "fontSize": 12,
           "marginBottom": 20,
           "marginLeft": 20,
+          "marginRight": 20,
         }
       }
     >
@@ -238,7 +239,7 @@ exports[`renders correctly 1`] = `
           "borderRadius": 5,
           "borderStyle": "solid",
           "borderWidth": 0.08,
-          "height": 100,
+          "height": 120,
           "justifyContent": "center",
           "marginBottom": 20,
           "shadowColor": "#000",
@@ -263,6 +264,8 @@ exports[`renders correctly 1`] = `
             "color": "#4A4A4A",
             "fontFamily": "helvetica-neue-md",
             "fontSize": 24,
+            "marginLeft": 20,
+            "marginRight": 20,
           }
         }
       />
@@ -276,10 +279,11 @@ exports[`renders correctly 1`] = `
         Object {
           "backgroundColor": "transparent",
           "color": "#B8B8B8",
-          "fontFamily": "helvetica-neue-lt",
+          "fontFamily": "helvetica-neue-md",
           "fontSize": 12,
           "marginBottom": 20,
           "marginLeft": 20,
+          "marginRight": 20,
         }
       }
     >
@@ -331,7 +335,7 @@ exports[`renders correctly 1`] = `
         style={
           Object {
             "marginRight": 20,
-            "marginTop": 16,
+            "marginTop": 15,
           }
         }
       />
@@ -382,7 +386,7 @@ exports[`renders correctly 1`] = `
         style={
           Object {
             "marginRight": 20,
-            "marginTop": 20,
+            "marginTop": 17,
           }
         }
       />
@@ -447,10 +451,11 @@ exports[`renders correctly 1`] = `
         Object {
           "backgroundColor": "transparent",
           "color": "#B8B8B8",
-          "fontFamily": "helvetica-neue-lt",
+          "fontFamily": "helvetica-neue-md",
           "fontSize": 12,
           "marginBottom": 20,
           "marginLeft": 20,
+          "marginRight": 20,
         }
       }
     >
