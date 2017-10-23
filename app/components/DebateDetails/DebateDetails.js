@@ -56,7 +56,7 @@ export default class DebateDetails extends Component {
       positiveAnswerId: response.answers.positive.id,
       negativeAnswerId: response.answers.negative.id,
       neutralAnswerId: response.answers.neutral.id,
-      lastAnswerId: response.answers.last_answer_id
+      lastAnswerId: response.last_answer_id
     })
   }
 
