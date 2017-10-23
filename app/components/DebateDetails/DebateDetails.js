@@ -80,9 +80,18 @@ export default class DebateDetails extends Component {
   }
 
   render() {
-    const PositiveIcon = require('/resources/images/PositiveIcon.png')
-    const NegativeIcon = require('/resources/images/NegativeIcon.png')
-    const NeutralIcon = require('/resources/images/NeutralIcon.png')
+    const PositiveIcon =
+      this.state.lastAnswerId === this.state.positiveAnswerId ?
+        require('/resources/images/PositiveIcon.png') :
+        require('/resources/images/PositiveIconGrey.png')
+    const NegativeIcon =
+      this.state.lastAnswerId === this.state.negativeAnswerId ?
+        require('/resources/images/NegativeIcon.png') :
+        require('/resources/images/NegativeIconGrey.png')
+    const NeutralIcon =
+      this.state.lastAnswerId === this.state.neutralAnswerId ?
+        require('/resources/images/NeutralIcon.png') :
+        require('/resources/images/NeutralIconGrey.png')
 
     return (
       <View style={styles.navContainer}>
