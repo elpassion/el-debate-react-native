@@ -16,6 +16,7 @@ import { Redirect, Route } from "react-router-native";
 import NavigationBar from 'react-native-navigation-bar';
 import Api from '/app/api/Api'
 import Keyboard from 'Keyboard';
+import Modal from 'react-native-modalbox';
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ export default class HomePage extends Component {
     this.state = {
       isLoading: false,
       message: '',
+      isOpen: false,
       searchString: '',
       authToken: '',
       code: '',
@@ -33,12 +35,18 @@ export default class HomePage extends Component {
 
   _handleResponse = (response) => {
     if (response.error) {
+      this.openAlert()
       this.setState({ message: response.error });
     } else {
       AsyncStorage.setItem('authToken', response.auth_token)
       this.props.history.push('/debate-details')
     }
   };
+
+  openAlert = () => {
+    this.refs.alert.open()
+    setTimeout(() => { this.refs.alert.close() }, 4000);
+  }
 
   _onLoginPressed = () => {
     this.setState({ isLoading: true, message: '' });
@@ -117,7 +125,6 @@ export default class HomePage extends Component {
         />
         <View style={styles.container}>
           <ScrollView style={styles.main}>
-            <Text style={styles.description}>{this.state.message}</Text>
             <Text style={styles.description}>
               Welcome to
             </Text>
@@ -133,6 +140,10 @@ export default class HomePage extends Component {
                 Log in
               </Text>
             </Button>
+            <Modal isOpen={this.state.isOpen} onClosed={() => this.setState({isOpen: false})} style={[styles.modal, styles.modal1]} position={"bottom"} ref="alert" backdrop={false}>
+              <Text style={styles.modalText}>{this.state.message}</Text>
+            </Modal>
+            <DetailsRoute/>
           </View>
         </View>
       </View>

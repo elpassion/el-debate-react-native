@@ -66,5 +66,22 @@ export default styles = StyleSheet.create({
     position: 'relative',
     left: (Platform.OS === 'ios') ? 45 : 55,
     bottom: (Platform.OS === 'ios') ? 30 : 40
+  },
+  modal: {
+    justifyContent: 'center',
+    height: 30
+  },
+  modal1: {
+    backgroundColor: "#4F4F4F",
+    height: 30,
+    bottom: 100
+  },
+  modalText: {
+    marginLeft: 20,
+    marginRight: 20,
+    fontSize: 10,
+    textAlign: 'left',
+    fontFamily: 'helvetica-neue',
+    color: 'white'
   }
 })
