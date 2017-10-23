@@ -8,7 +8,8 @@ import {
   Text,
   AsyncStorage,
   Alert,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from 'react-native';
 
 import NavigationBar from 'react-native-navigation-bar';
@@ -18,36 +19,71 @@ import Api from '/app/api/Api'
 export default class DebateDetails extends Component {
   constructor(props) {
     super(props)
-    AsyncStorage.getItem('authToken')
-      .then((value) => this.getDebate(value))
 
     this.state = {
+      authToken: '',
       topic: '',
       positiveAnswer: '',
       neutralAnswer: '',
-      negativeAnswer: ''
+      negativeAnswer: '',
+      positiveAnswerId: 0,
+      negativeAnswerId: 0,
+      neutralAnswerId: 0,
+      lastAnswerId: 0,
+      isLoading: false,
     }
+
+    AsyncStorage.getItem('authToken')
+      .then((value) => this.getDebate(value))
   }
 
   getDebate = (authToken) => {
+    this.setState({ authToken: authToken })
     Api.getDebate(authToken)
       .then(response => response.json())
-      .then(response => this._handleResponse(response))
+      .then(response => this._handleDebateResponse(response))
       .catch(error =>
         Alert.alert('Something went wrong' + error)
       );
   }
 
-  _handleResponse = (response) => {
+  _handleDebateResponse = (response) => {
     this.setState({
       topic: response.topic,
       positiveAnswer: response.answers.positive.value,
       negativeAnswer: response.answers.negative.value,
-      neutralAnswer: response.answers.neutral.value
+      neutralAnswer: response.answers.neutral.value,
+      positiveAnswerId: response.answers.positive.id,
+      negativeAnswerId: response.answers.negative.id,
+      neutralAnswerId: response.answers.neutral.id,
+      lastAnswerId: response.answers.last_answer_id
     })
   }
 
+  _onPressAnswer = (answerId) => {
+    this.setState({ isLoading: true })
+    Api.vote(this.state.authToken, answerId)
+      .then(response => this._handleVote(response, answerId))
+      .catch(error =>
+        Alert.alert('Something went wrong' + error)
+      );
+  }
+
+  _handleVote = (response, answerId) => {
+    if (response.status === 201) {
+      this.setState({ lastAnswerId: answerId })
+      Alert.alert('Vote has been saved')
+      this.setState({ isLoading: false })
+    } else {
+      Alert.alert('Something went wrong.')
+    }
+  }
+
   render() {
+    const PositiveIcon = require('/resources/images/PositiveIcon.png')
+    const NegativeIcon = require('/resources/images/NegativeIcon.png')
+    const NeutralIcon = require('/resources/images/NeutralIcon.png')
+
     return (
       <View style={styles.navContainer}>
         <NavigationBar
@@ -74,24 +110,36 @@ export default class DebateDetails extends Component {
           <Text style={styles.description}>
             Choose your side with one of the following:
           </Text>
-          <View style={styles.answerBox}>
+          <TouchableOpacity
+            style={styles.answerBox}
+            onPress={() => this._onPressAnswer(this.state.positiveAnswerId)}>
             <Text style={styles.positiveAnswer}>
               {this.state.positiveAnswer}
             </Text>
-            <Image source={require('/resources/images/PositiveIcon.png')} style={styles.positiveAnswerIcon}/>
-          </View>
-          <View style={styles.answerBox}>
+            <Image
+              source={PositiveIcon}
+              style={styles.positiveAnswerIcon}/>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.answerBox}
+            onPress={() => this._onPressAnswer(this.state.negativeAnswerId)}>
             <Text style={styles.negativeAnswer}>
               {this.state.negativeAnswer}
             </Text>
-            <Image source={require('/resources/images/NegativeIcon.png')} style={styles.negativeAnswerIcon}/>
-          </View>
-          <View style={styles.answerBox}>
+            <Image
+              source={NegativeIcon}
+              style={styles.negativeAnswerIcon}/>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.answerBox}
+            onPress={() => this._onPressAnswer(this.state.neutralAnswerId)}>
             <Text style={styles.neutralAnswer}>
               {this.state.neutralAnswer}
             </Text>
-            <Image source={require('/resources/images/NeutralIcon.png')} style={styles.neutralAnswerIcon}/>
-          </View>
+            <Image
+              source={NeutralIcon}
+              style={styles.neutralAnswerIcon}/>
+          </TouchableOpacity>
           <Text style={styles.description}>
             Remember that you can change your mind before debate ends, thats why we are here!
           </Text>
