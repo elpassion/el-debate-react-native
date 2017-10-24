@@ -288,7 +288,10 @@ exports[`renders correctly 1`] = `
     >
       Choose your side with one of the following:
     </Text>
-    <View
+    <TouchableOpacity
+      activeOpacity={0.2}
+      focusedOpacity={0.7}
+      onPress={[Function]}
       style={
         Object {
           "alignSelf": "center",
@@ -338,8 +341,11 @@ exports[`renders correctly 1`] = `
           }
         }
       />
-    </View>
-    <View
+    </TouchableOpacity>
+    <TouchableOpacity
+      activeOpacity={0.2}
+      focusedOpacity={0.7}
+      onPress={[Function]}
       style={
         Object {
           "alignSelf": "center",
@@ -389,8 +395,11 @@ exports[`renders correctly 1`] = `
           }
         }
       />
-    </View>
-    <View
+    </TouchableOpacity>
+    <TouchableOpacity
+      activeOpacity={0.2}
+      focusedOpacity={0.7}
+      onPress={[Function]}
       style={
         Object {
           "alignSelf": "center",
@@ -440,7 +449,7 @@ exports[`renders correctly 1`] = `
           }
         }
       />
-    </View>
+    </TouchableOpacity>
     <Text
       accessible={true}
       allowFontScaling={true}

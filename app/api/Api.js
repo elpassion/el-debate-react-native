@@ -24,4 +24,18 @@ export default class Api {
       }
     });
   }
+
+  static vote (auth_token: string, answer_id: integer) {
+    const params = { id: answer_id }
+
+    return fetch(BASE_URL + '/api/vote', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': auth_token
+      },
+      body: JSON.stringify(params)
+    });
+  }
 }
