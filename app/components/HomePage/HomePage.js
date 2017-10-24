@@ -135,7 +135,6 @@ export default class HomePage extends Component {
             <AlertModal
               ref="alertModal"
             />
-            <DetailsRoute/>
           </View>
         </View>
       </View>

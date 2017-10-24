@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
     fontSize: (Platform.OS === 'ios') ? 10 : 12,
     textAlign: 'left',
-    fontFamily: 'helvetica-neue',
+    fontFamily: 'helvetica-neue-md',
     color: 'white'
   }
 });
