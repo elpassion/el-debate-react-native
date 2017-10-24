@@ -5,7 +5,6 @@ import {
   View,
   ActivityIndicator,
   Image,
-  Alert,
   Platform,
   AsyncStorage,
   ScrollView
@@ -16,13 +15,13 @@ import { Redirect, Route } from "react-router-native";
 import NavigationBar from 'react-native-navigation-bar';
 import Api from '/app/api/Api'
 import Keyboard from 'Keyboard';
+import AlertModal from '/app/components/AlertModal'
 
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: false,
-      message: '',
       searchString: '',
       authToken: '',
       code: '',
@@ -33,7 +32,7 @@ export default class HomePage extends Component {
 
   _handleResponse = (response) => {
     if (response.error) {
-      this.setState({ message: response.error });
+      this.refs.alertModal.openModalAlert(response.error)
     } else {
       AsyncStorage.setItem('authToken', response.auth_token)
       AsyncStorage.setItem('code', this.state.searchString)
@@ -56,7 +55,7 @@ export default class HomePage extends Component {
       .then(response => response.json())
       .then(response => this._handleResponse(response))
       .catch(error =>
-        Alert.alert('Something went wrong' + error)
+        this.refs.alertModal.openModalAlert(error)
     );
   }
 
@@ -117,7 +116,6 @@ export default class HomePage extends Component {
         />
         <View style={styles.container}>
           <ScrollView style={styles.main}>
-            <Text style={styles.description}>{this.state.message}</Text>
             <Text style={styles.description}>
               Welcome to
             </Text>
@@ -135,6 +133,9 @@ export default class HomePage extends Component {
             </Button>
           </View>
         </View>
+        <AlertModal
+          ref="alertModal"
+        />
       </View>
     );
   }

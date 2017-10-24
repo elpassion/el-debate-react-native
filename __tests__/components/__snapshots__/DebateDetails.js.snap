@@ -47,21 +47,6 @@ exports[`DebateDetails 1`] = `
             "textAlign": "center",
           }
         }
-      />
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#656565",
-            "fontFamily": "helvetica-neue-lt",
-            "fontSize": 20,
-            "marginBottom": 20,
-            "textAlign": "center",
-          }
-        }
       >
         Welcome to
       </Text>
@@ -161,6 +146,7 @@ exports[`DebateDetails 1`] = `
       </Button>
     </View>
   </View>
+  <AlertModal />
 </View>
 `;
 
@@ -470,6 +456,7 @@ exports[`renders correctly 1`] = `
       Remember that you can change your mind before debate ends, thats why we are here!
     </Text>
   </ScrollViewMock>
+  <AlertModal />
 </View>
 `;
 
@@ -506,21 +493,6 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
         }
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#656565",
-            "fontFamily": "helvetica-neue-lt",
-            "fontSize": 20,
-            "marginBottom": 20,
-            "textAlign": "center",
-          }
-        }
-      />
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -634,5 +606,6 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
       </Button>
     </View>
   </View>
+  <AlertModal />
 </View>
 `;
