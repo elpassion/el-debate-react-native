@@ -17,7 +17,6 @@ export default class AlertModal extends Component {
   }
 
   openModalAlert = (message) => {
-    console.log(message)
     this.setState({ isOpen: true, message: message })
     setTimeout(() => { this.setState({ isOpen: false }) }, 4000);
   }
