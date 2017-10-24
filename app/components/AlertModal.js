@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   modal1: {
     backgroundColor: "#4F4F4F",
     height: 30,
-    bottom: (Platform.OS === 'ios') ? 100 : 70
+    bottom: 0
   },
   modalText: {
     marginLeft: 20,

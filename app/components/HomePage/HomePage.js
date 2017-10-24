@@ -132,11 +132,11 @@ export default class HomePage extends Component {
                 Log in
               </Text>
             </Button>
-            <AlertModal
-              ref="alertModal"
-            />
           </View>
         </View>
+        <AlertModal
+          ref="alertModal"
+        />
       </View>
     );
   }
