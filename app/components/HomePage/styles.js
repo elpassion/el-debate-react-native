@@ -5,7 +5,7 @@ export default styles = StyleSheet.create({
     marginBottom: 20,
     fontSize: 20,
     textAlign: 'center',
-    fontFamily: 'helvetica-neue',
+    fontFamily: 'helvetica-neue-lt',
     color: '#656565'
   },
   navContainer: {
@@ -58,7 +58,7 @@ export default styles = StyleSheet.create({
     borderColor: '#fff'
   },
   buttonText: {
-    fontFamily: 'helvetica-neue',
+    fontFamily: 'helvetica-neue-lt',
     fontSize: 14,
     color: '#fff'
   },

@@ -41,7 +41,7 @@ exports[`DebateDetails 1`] = `
         style={
           Object {
             "color": "#656565",
-            "fontFamily": "helvetica-neue",
+            "fontFamily": "helvetica-neue-lt",
             "fontSize": 20,
             "marginBottom": 20,
             "textAlign": "center",
@@ -56,7 +56,7 @@ exports[`DebateDetails 1`] = `
         style={
           Object {
             "color": "#656565",
-            "fontFamily": "helvetica-neue",
+            "fontFamily": "helvetica-neue-lt",
             "fontSize": 20,
             "marginBottom": 20,
             "textAlign": "center",
@@ -151,7 +151,7 @@ exports[`DebateDetails 1`] = `
           style={
             Object {
               "color": "#fff",
-              "fontFamily": "helvetica-neue",
+              "fontFamily": "helvetica-neue-lt",
               "fontSize": 14,
             }
           }
@@ -187,9 +187,28 @@ exports[`renders correctly 1`] = `
   <View
     style={
       Object {
-        "alignItems": "center",
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Object {
+          "alignSelf": "center",
+          "bottom": -30,
+        }
+      }
+    />
+  </View>
+  <ScrollViewMock
+    style={
+      Object {
         "flex": 1,
-        "top": 100,
+        "top": 85,
       }
     }
   >
@@ -198,26 +217,251 @@ exports[`renders correctly 1`] = `
       allowFontScaling={true}
       disabled={false}
       ellipsizeMode="tail"
-    />
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "color": "#B8B8B8",
+          "fontFamily": "helvetica-neue-md",
+          "fontSize": 12,
+          "marginBottom": 20,
+          "marginLeft": 20,
+          "marginRight": 20,
+        }
+      }
+    >
+      Our debate is about:
+    </Text>
+    <View
+      style={
+        Object {
+          "alignSelf": "center",
+          "borderColor": "rgba(0, 0, 0, 0.3)",
+          "borderRadius": 5,
+          "borderStyle": "solid",
+          "borderWidth": 0.08,
+          "height": 120,
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "shadowColor": "#000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 1,
+          },
+          "shadowOpacity": 0.08,
+          "shadowRadius": 2,
+          "width": "90%",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "#4A4A4A",
+            "fontFamily": "helvetica-neue-md",
+            "fontSize": 24,
+            "marginLeft": 20,
+            "marginRight": 20,
+          }
+        }
+      />
+    </View>
     <Text
       accessible={true}
       allowFontScaling={true}
       disabled={false}
       ellipsizeMode="tail"
-    />
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "color": "#B8B8B8",
+          "fontFamily": "helvetica-neue-md",
+          "fontSize": 12,
+          "marginBottom": 20,
+          "marginLeft": 20,
+          "marginRight": 20,
+        }
+      }
+    >
+      Choose your side with one of the following:
+    </Text>
+    <View
+      style={
+        Object {
+          "alignSelf": "center",
+          "backgroundColor": "white",
+          "borderColor": "rgba(0, 0, 0, 0.3)",
+          "borderRadius": 5,
+          "borderStyle": "solid",
+          "borderWidth": 0.08,
+          "flex": 1,
+          "flexDirection": "row",
+          "height": 60,
+          "justifyContent": "space-between",
+          "marginBottom": 20,
+          "shadowColor": "#000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 1,
+          },
+          "shadowOpacity": 0.08,
+          "shadowRadius": 2,
+          "width": "90%",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "color": "#0098E3",
+            "fontFamily": "helvetica-neue-lt",
+            "fontSize": 24,
+            "marginLeft": 20,
+            "marginTop": 15,
+          }
+        }
+      />
+      <Image
+        source={1}
+        style={
+          Object {
+            "marginRight": 20,
+            "marginTop": 15,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignSelf": "center",
+          "backgroundColor": "white",
+          "borderColor": "rgba(0, 0, 0, 0.3)",
+          "borderRadius": 5,
+          "borderStyle": "solid",
+          "borderWidth": 0.08,
+          "flex": 1,
+          "flexDirection": "row",
+          "height": 60,
+          "justifyContent": "space-between",
+          "marginBottom": 20,
+          "shadowColor": "#000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 1,
+          },
+          "shadowOpacity": 0.08,
+          "shadowRadius": 2,
+          "width": "90%",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "color": "#E44043",
+            "fontFamily": "helvetica-neue-lt",
+            "fontSize": 24,
+            "marginLeft": 20,
+            "marginTop": 15,
+          }
+        }
+      />
+      <Image
+        source={1}
+        style={
+          Object {
+            "marginRight": 20,
+            "marginTop": 17,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignSelf": "center",
+          "backgroundColor": "white",
+          "borderColor": "rgba(0, 0, 0, 0.3)",
+          "borderRadius": 5,
+          "borderStyle": "solid",
+          "borderWidth": 0.08,
+          "flex": 1,
+          "flexDirection": "row",
+          "height": 60,
+          "justifyContent": "space-between",
+          "marginBottom": 20,
+          "shadowColor": "#000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 1,
+          },
+          "shadowOpacity": 0.08,
+          "shadowRadius": 2,
+          "width": "90%",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "color": "#8F8F8F",
+            "fontFamily": "helvetica-neue-lt",
+            "fontSize": 24,
+            "marginLeft": 20,
+            "marginTop": 15,
+          }
+        }
+      />
+      <Image
+        source={1}
+        style={
+          Object {
+            "marginRight": 20,
+            "marginTop": 15,
+          }
+        }
+      />
+    </View>
     <Text
       accessible={true}
       allowFontScaling={true}
       disabled={false}
       ellipsizeMode="tail"
-    />
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
-    />
-  </View>
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "color": "#B8B8B8",
+          "fontFamily": "helvetica-neue-md",
+          "fontSize": 12,
+          "marginBottom": 20,
+          "marginLeft": 20,
+          "marginRight": 20,
+        }
+      }
+    >
+      Remember that you can change your mind before debate ends, thats why we are here!
+    </Text>
+  </ScrollViewMock>
 </View>
 `;
 
@@ -262,7 +506,7 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
         style={
           Object {
             "color": "#656565",
-            "fontFamily": "helvetica-neue",
+            "fontFamily": "helvetica-neue-lt",
             "fontSize": 20,
             "marginBottom": 20,
             "textAlign": "center",
@@ -277,7 +521,7 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
         style={
           Object {
             "color": "#656565",
-            "fontFamily": "helvetica-neue",
+            "fontFamily": "helvetica-neue-lt",
             "fontSize": 20,
             "marginBottom": 20,
             "textAlign": "center",
@@ -372,7 +616,7 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
           style={
             Object {
               "color": "#fff",
-              "fontFamily": "helvetica-neue",
+              "fontFamily": "helvetica-neue-lt",
               "fontSize": 14,
             }
           }

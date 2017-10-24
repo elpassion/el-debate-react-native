@@ -14,7 +14,8 @@ export default class App extends Component {
   }
   async componentDidMount() {
     await Font.loadAsync({
-      'helvetica-neue': require('./resources/fonts/HelveticaNeueLt.ttf')
+      'helvetica-neue-lt': require('./resources/fonts/HelveticaNeueLt.ttf'),
+      'helvetica-neue-md': require('./resources/fonts/HelveticaNeueMd.ttf')
     });
     this.setState({ fontLoaded: true });
   }
