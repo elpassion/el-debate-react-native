@@ -36,6 +36,7 @@ export default class HomePage extends Component {
       this.setState({ message: response.error });
     } else {
       AsyncStorage.setItem('authToken', response.auth_token)
+      AsyncStorage.setItem('code', this.state.searchString)
       this.props.history.push('/debate-details')
     }
   };
@@ -45,7 +46,6 @@ export default class HomePage extends Component {
     if (this.state.authToken && (this.state.code === this.state.searchString)) {
       this.props.history.push('/debate-details')
     } else {
-      AsyncStorage.setItem('code', this.state.searchString)
       this._loginToDebate()
     }
     this.setState({ isLoading: false });
