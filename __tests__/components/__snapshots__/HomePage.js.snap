@@ -159,7 +159,6 @@ exports[`renders correctly 1`] = `
           Log in
         </Text>
       </Button>
-      <DetailsRoute />
     </View>
   </View>
 </View>

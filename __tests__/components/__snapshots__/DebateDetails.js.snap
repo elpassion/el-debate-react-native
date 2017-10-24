@@ -159,7 +159,6 @@ exports[`DebateDetails 1`] = `
           Log in
         </Text>
       </Button>
-      <DetailsRoute />
     </View>
   </View>
 </View>
@@ -624,7 +623,6 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
           Log in
         </Text>
       </Button>
-      <DetailsRoute />
     </View>
   </View>
 </View>
