@@ -100,9 +100,6 @@ export default class DebateDetails extends Component {
           height={50}
           titleColor={'#fff'}
           backgroundColor={'#4CC359'}
-          leftButtonTitle={'Back'}
-          leftButtonTitleColor={'#fff'}
-          onLeftButtonPress={() => this.props.history.goBack()}
         />
         <View style={styles.footer}>
           <Image source={require('/resources/images/backgroundimg.png')} style={styles.backgroundImage} />
