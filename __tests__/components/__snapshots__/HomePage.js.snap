@@ -47,21 +47,6 @@ exports[`renders correctly 1`] = `
             "textAlign": "center",
           }
         }
-      />
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#656565",
-            "fontFamily": "helvetica-neue-lt",
-            "fontSize": 20,
-            "marginBottom": 20,
-            "textAlign": "center",
-          }
-        }
       >
         Welcome to
       </Text>
@@ -161,5 +146,6 @@ exports[`renders correctly 1`] = `
       </Button>
     </View>
   </View>
+  <AlertModal />
 </View>
 `;
