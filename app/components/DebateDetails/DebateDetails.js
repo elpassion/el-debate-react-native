@@ -73,10 +73,10 @@ export default class DebateDetails extends Component {
     if (response.status === 201) {
       this.setState({ lastAnswerId: answerId })
       Alert.alert('Vote has been saved')
-      this.setState({ isLoading: false })
-    } else {
-      Alert.alert('Something went wrong.')
+    } else if (response.status === 403) {
+      Alert.alert('Debate is closed.')
     }
+    this.setState({ isLoading: false })
   }
 
   render() {
