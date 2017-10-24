@@ -4,6 +4,7 @@
     "version": "0.0.1",
     "slug": "slug",
     "sdkVersion": "19.0.0",
+    "orientation": "portrait",
     "ios": {
       "bundleIdentifier": "com.el.debate.react",
       "icon": "./resources/images/ios_icon.png"
