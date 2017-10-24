@@ -1,12 +1,8 @@
 import React, { Component } from 'React'
 import {
   StyleSheet,
-  View,
   Text,
-  TouchableOpacity,
-  Platform,
-  Linking,
-  Alert
+  Platform
 } from 'react-native'
 import Modal from 'react-native-modalbox';
 
@@ -50,12 +46,12 @@ const styles = StyleSheet.create({
   modal1: {
     backgroundColor: "#4F4F4F",
     height: 30,
-    bottom: 100
+    bottom: (Platform.OS === 'ios') ? 100 : 70
   },
   modalText: {
     marginLeft: 20,
     marginRight: 20,
-    fontSize: 10,
+    fontSize: (Platform.OS === 'ios') ? 10 : 12,
     textAlign: 'left',
     fontFamily: 'helvetica-neue',
     color: 'white'
