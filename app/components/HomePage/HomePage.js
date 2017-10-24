@@ -5,7 +5,6 @@ import {
   View,
   ActivityIndicator,
   Image,
-  Alert,
   Platform,
   AsyncStorage,
   ScrollView
@@ -56,7 +55,7 @@ export default class HomePage extends Component {
       .then(response => response.json())
       .then(response => this._handleResponse(response))
       .catch(error =>
-        Alert.alert('Something went wrong' + error)
+        this.refs.alertModal.openModalAlert(error)
     );
   }
 

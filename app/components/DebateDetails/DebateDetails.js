@@ -7,7 +7,6 @@ import {
   FlatList,
   Text,
   AsyncStorage,
-  Alert,
   ScrollView,
   TouchableOpacity
 } from 'react-native';
@@ -15,6 +14,7 @@ import {
 import NavigationBar from 'react-native-navigation-bar';
 import styles from './styles'
 import Api from '/app/api/Api'
+import AlertModal from '/app/components/AlertModal'
 
 export default class DebateDetails extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ export default class DebateDetails extends Component {
       .then(response => response.json())
       .then(response => this._handleDebateResponse(response))
       .catch(error =>
-        Alert.alert('Something went wrong' + error)
+        this.refs.alertModal.openModalAlert(error)
       );
   }
 
@@ -65,16 +65,16 @@ export default class DebateDetails extends Component {
     Api.vote(this.state.authToken, answerId)
       .then(response => this._handleVote(response, answerId))
       .catch(error =>
-        Alert.alert('Something went wrong' + error)
+        this.refs.alertModal.openModalAlert(error)
       );
   }
 
   _handleVote = (response, answerId) => {
     if (response.status === 201) {
       this.setState({ lastAnswerId: answerId })
-      Alert.alert('Vote has been saved')
+      this.refs.alertModal.openModalAlert('Vote has been saved')
     } else if (response.status === 403) {
-      Alert.alert('Debate is closed.')
+      this.refs.alertModal.openModalAlert('Debate is closed.')
     }
     this.setState({ isLoading: false })
   }
@@ -153,6 +153,9 @@ export default class DebateDetails extends Component {
             Remember that you can change your mind before debate ends, thats why we are here!
           </Text>
         </ScrollView>
+        <AlertModal
+          ref="alertModal"
+        />
       </View>
     );
   }
