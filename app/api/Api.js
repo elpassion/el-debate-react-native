@@ -38,4 +38,15 @@ export default class Api {
       body: JSON.stringify(params)
     });
   }
+
+  static getComments (auth_token: string) {
+    return fetch(BASE_URL + '/api/comments', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': auth_token
+      }
+    });
+  }
 }

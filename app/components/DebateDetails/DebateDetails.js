@@ -166,7 +166,7 @@ export default class DebateDetails extends Component {
           </ScrollView>
           <View style={styles.footer}>
             <Image source={require('/resources/images/backgroundimg.png')} style={styles.backgroundImage} />
-            <Button isDisabled={!this.state.isFetched} onPress={() => this.props.history.push('/comments')} style={styles.button} title="Chat">
+            <Button isDisabled={!this.state.isFetched} onPress={() => this.props.history.push('/comments-list')} style={styles.button} title="Chat">
               <Text style={styles.buttonText}>
                 Chat
               </Text>

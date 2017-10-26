@@ -1,20 +1,6 @@
 import { StyleSheet, Platform } from 'react-native'
 
 export default StyleSheet.create({
-  navContainer: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    left: 0,
-    zIndex: 2
-  },
-  comments: {
-    top: (Platform.OS === 'ios') ? 70 : 0,
-    left: 0,
-    right: 0,
-    zIndex: 0,
-    height: '100%'
-  },
   comment: {
     top: 0,
     height: 80,
@@ -26,7 +12,7 @@ export default StyleSheet.create({
   userInitials: {
     position: 'absolute',
     marginTop: 33,
-    marginLeft: 25,
+    marginLeft: 27,
     fontFamily: 'helvetica-neue-md',
     fontSize: 12,
     zIndex: 2,
