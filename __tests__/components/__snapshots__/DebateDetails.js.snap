@@ -161,9 +161,8 @@ exports[`renders correctly 1`] = `
   <NavigationBar
     backgroundColor="#4CC359"
     height={50}
-    leftButtonTitle="Back"
-    leftButtonTitleColor="#fff"
-    onLeftButtonPress={[Function]}
+    leftButtonTitle={null}
+    leftButtonTitleColor="#000"
     rightButtonTitle={null}
     rightButtonTitleColor="#000"
     title="EL Debate"
@@ -276,6 +275,7 @@ exports[`renders correctly 1`] = `
     </Text>
     <TouchableOpacity
       activeOpacity={0.2}
+      disabled={false}
       focusedOpacity={0.7}
       onPress={[Function]}
       style={
@@ -330,6 +330,7 @@ exports[`renders correctly 1`] = `
     </TouchableOpacity>
     <TouchableOpacity
       activeOpacity={0.2}
+      disabled={false}
       focusedOpacity={0.7}
       onPress={[Function]}
       style={
@@ -384,6 +385,7 @@ exports[`renders correctly 1`] = `
     </TouchableOpacity>
     <TouchableOpacity
       activeOpacity={0.2}
+      disabled={false}
       focusedOpacity={0.7}
       onPress={[Function]}
       style={
