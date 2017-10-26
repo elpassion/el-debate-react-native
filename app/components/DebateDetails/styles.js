@@ -4,9 +4,14 @@ export default StyleSheet.create({
   navContainer: {
     flex: 1
   },
+  main: {
+    flex: 1,
+    zIndex: 1
+  },
   container: {
     flex: 1,
     top: (Platform.OS === 'ios') ? 85 : 75,
+    position: 'absolute'
   },
   description: {
     marginLeft: 20,
@@ -83,14 +88,13 @@ export default StyleSheet.create({
     backgroundColor: 'transparent'
   },
   footer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0
+    bottom: -15
   },
   backgroundImage: {
     alignSelf: 'center',
-    bottom: -30
+    position: 'absolute',
+    zIndex: 0,
+    bottom: -70
   },
   positiveAnswerIcon: {
     marginRight: 20,
@@ -103,5 +107,19 @@ export default StyleSheet.create({
   neutralAnswerIcon: {
     marginRight: 20,
     marginTop: 15
+  },
+  button: {
+    bottom: 0,
+    alignSelf: 'center',
+    height: (Platform.OS === 'ios') ? 40 : 50,
+    width: '80%',
+    backgroundColor: '#4CC359',
+    borderRadius: 0,
+    borderColor: '#fff'
+  },
+  buttonText: {
+    fontFamily: 'helvetica-neue-lt',
+    fontSize: 14,
+    color: '#fff'
   }
 })

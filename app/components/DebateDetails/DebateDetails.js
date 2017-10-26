@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
   BackHandler
 } from 'react-native';
-
+import Button from 'apsl-react-native-button'
 import styles from './styles'
 import Api from '/app/api/Api'
 import AlertModal from '/app/components/Shared/AlertModal'
@@ -112,58 +112,65 @@ export default class DebateDetails extends Component {
     return (
       <View style={styles.navContainer}>
         <Navbar history={this.props.history}/>
-        <View style={styles.footer}>
-          <Image source={require('/resources/images/backgroundimg.png')} style={styles.backgroundImage} />
-        </View>
-        <ScrollView style={styles.container}>
-          <Text style={styles.description}>
-            Our debate is about:
-          </Text>
-          <View style={styles.topicBox}>
-            <Text style={styles.topic}>
-              {this.state.topic}
+        <View style={styles.container}>
+          <ScrollView style={styles.main}>
+            <Text style={styles.description}>
+              Our debate is about:
             </Text>
+            <View style={styles.topicBox}>
+              <Text style={styles.topic}>
+                {this.state.topic}
+              </Text>
+            </View>
+            <Text style={styles.description}>
+              Choose your side with one of the following:
+            </Text>
+            <TouchableOpacity
+              disabled={this.state.answerPressed}
+              style={styles.answerBox}
+              onPress={() => this._onPressAnswer(this.state.positiveAnswerId)}>
+              <Text style={styles.positiveAnswer}>
+                {this.state.positiveAnswer}
+              </Text>
+              <Image
+                source={PositiveIcon}
+                style={styles.positiveAnswerIcon}/>
+            </TouchableOpacity>
+            <TouchableOpacity
+              disabled={this.state.answerPressed}
+              style={styles.answerBox}
+              onPress={() => this._onPressAnswer(this.state.negativeAnswerId)}>
+              <Text style={styles.negativeAnswer}>
+                {this.state.negativeAnswer}
+              </Text>
+              <Image
+                source={NegativeIcon}
+                style={styles.negativeAnswerIcon}/>
+            </TouchableOpacity>
+            <TouchableOpacity
+              disabled={this.state.answerPressed}
+              style={styles.answerBox}
+              onPress={() => this._onPressAnswer(this.state.neutralAnswerId)}>
+              <Text style={styles.neutralAnswer}>
+                {this.state.neutralAnswer}
+              </Text>
+              <Image
+                source={NeutralIcon}
+                style={styles.neutralAnswerIcon}/>
+            </TouchableOpacity>
+            <Text style={styles.description}>
+              Remember that you can change your mind before debate ends, thats why we are here!
+            </Text>
+          </ScrollView>
+          <View style={styles.footer}>
+            <Image source={require('/resources/images/backgroundimg.png')} style={styles.backgroundImage} />
+            <Button onPress={() => this.props.history.push('/comments')} style={styles.button} title="Chat">
+              <Text style={styles.buttonText}>
+                Chat
+              </Text>
+            </Button>
           </View>
-          <Text style={styles.description}>
-            Choose your side with one of the following:
-          </Text>
-          <TouchableOpacity
-            disabled={this.state.answerPressed}
-            style={styles.answerBox}
-            onPress={() => this._onPressAnswer(this.state.positiveAnswerId)}>
-            <Text style={styles.positiveAnswer}>
-              {this.state.positiveAnswer}
-            </Text>
-            <Image
-              source={PositiveIcon}
-              style={styles.positiveAnswerIcon}/>
-          </TouchableOpacity>
-          <TouchableOpacity
-            disabled={this.state.answerPressed}
-            style={styles.answerBox}
-            onPress={() => this._onPressAnswer(this.state.negativeAnswerId)}>
-            <Text style={styles.negativeAnswer}>
-              {this.state.negativeAnswer}
-            </Text>
-            <Image
-              source={NegativeIcon}
-              style={styles.negativeAnswerIcon}/>
-          </TouchableOpacity>
-          <TouchableOpacity
-            disabled={this.state.answerPressed}
-            style={styles.answerBox}
-            onPress={() => this._onPressAnswer(this.state.neutralAnswerId)}>
-            <Text style={styles.neutralAnswer}>
-              {this.state.neutralAnswer}
-            </Text>
-            <Image
-              source={NeutralIcon}
-              style={styles.neutralAnswerIcon}/>
-          </TouchableOpacity>
-          <Text style={styles.description}>
-            Remember that you can change your mind before debate ends, thats why we are here!
-          </Text>
-        </ScrollView>
+        </View>
         <AlertModal
           ref="alertModal"
         />

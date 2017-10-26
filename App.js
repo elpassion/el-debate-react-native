@@ -5,6 +5,7 @@ import { NativeRouter, Route, Link } from 'react-router-native'
 
 import HomePage from './app/components/HomePage/HomePage';
 import DebateDetails from './app/components/DebateDetails/DebateDetails';
+import Comments from './app/components/Comments/Comments';
 
 export default class App extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ export default class App extends Component {
           <View style={styles.container}>
             <Route exact path='/' component={HomePage}/>
             <Route path='/debate-details' component={DebateDetails}/>
+            <Route path='/comments' component={Comments}/>
           </View>
         </NativeRouter>
       );
