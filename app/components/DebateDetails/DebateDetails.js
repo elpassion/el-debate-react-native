@@ -31,6 +31,8 @@ export default class DebateDetails extends Component {
       neutralAnswerId: 0,
       lastAnswerId: 0,
       isLoading: false,
+      answerPressed: false,
+      clearId: 0
     }
 
     AsyncStorage.getItem('authToken')
@@ -61,7 +63,7 @@ export default class DebateDetails extends Component {
   }
 
   _onPressAnswer = (answerId) => {
-    this.setState({ isLoading: true })
+    this.setState({ isLoading: true, answerPressed: true })
     Api.vote(this.state.authToken, answerId)
       .then(response => this._handleVote(response, answerId))
       .catch(error =>
@@ -76,7 +78,12 @@ export default class DebateDetails extends Component {
     } else if (response.status === 403) {
       this.refs.alertModal.openModalAlert('Debate is closed.')
     }
-    this.setState({ isLoading: false })
+    var clearId = setTimeout(() => { this.setState({ answerPressed: false }) }, 2000);
+    this.setState({ isLoading: false, clearId: clearId })
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.state.clearId)
   }
 
   render() {
@@ -117,6 +124,7 @@ export default class DebateDetails extends Component {
             Choose your side with one of the following:
           </Text>
           <TouchableOpacity
+            disabled={this.state.answerPressed}
             style={styles.answerBox}
             onPress={() => this._onPressAnswer(this.state.positiveAnswerId)}>
             <Text style={styles.positiveAnswer}>
@@ -127,6 +135,7 @@ export default class DebateDetails extends Component {
               style={styles.positiveAnswerIcon}/>
           </TouchableOpacity>
           <TouchableOpacity
+            disabled={this.state.answerPressed}
             style={styles.answerBox}
             onPress={() => this._onPressAnswer(this.state.negativeAnswerId)}>
             <Text style={styles.negativeAnswer}>
@@ -137,6 +146,7 @@ export default class DebateDetails extends Component {
               style={styles.negativeAnswerIcon}/>
           </TouchableOpacity>
           <TouchableOpacity
+            disabled={this.state.answerPressed}
             style={styles.answerBox}
             onPress={() => this._onPressAnswer(this.state.neutralAnswerId)}>
             <Text style={styles.neutralAnswer}>
