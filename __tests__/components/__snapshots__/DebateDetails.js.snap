@@ -158,16 +158,7 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <NavigationBar
-    backgroundColor="#4CC359"
-    height={50}
-    leftButtonTitle={null}
-    leftButtonTitleColor="#000"
-    rightButtonTitle={null}
-    rightButtonTitleColor="#000"
-    title="EL Debate"
-    titleColor="#fff"
-  />
+  <Navbar />
   <View
     style={
       Object {
