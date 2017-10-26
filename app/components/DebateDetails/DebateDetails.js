@@ -32,6 +32,7 @@ export default class DebateDetails extends Component {
       neutralAnswerId: 0,
       lastAnswerId: 0,
       isLoading: false,
+      isFetched: false,
       answerPressed: false,
       clearId: 0
     }
@@ -59,7 +60,8 @@ export default class DebateDetails extends Component {
       positiveAnswerId: response.answers.positive.id,
       negativeAnswerId: response.answers.negative.id,
       neutralAnswerId: response.answers.neutral.id,
-      lastAnswerId: response.last_answer_id
+      lastAnswerId: response.last_answer_id,
+      isFetched: true
     })
   }
 
@@ -164,7 +166,7 @@ export default class DebateDetails extends Component {
           </ScrollView>
           <View style={styles.footer}>
             <Image source={require('/resources/images/backgroundimg.png')} style={styles.backgroundImage} />
-            <Button onPress={() => this.props.history.push('/comments')} style={styles.button} title="Chat">
+            <Button isDisabled={!this.state.isFetched} onPress={() => this.props.history.push('/comments')} style={styles.button} title="Chat">
               <Text style={styles.buttonText}>
                 Chat
               </Text>
