@@ -457,6 +457,7 @@ exports[`renders correctly 1`] = `
         }
       />
       <Button
+        isDisabled={true}
         onPress={[Function]}
         style={
           Object {

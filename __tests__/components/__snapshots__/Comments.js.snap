@@ -1,13 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
+<View>
+  <View
+    style={
+      Object {
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "zIndex": 2,
+      }
     }
-  }
->
-  <Navbar />
+  >
+    <Navbar />
+  </View>
+  <ScrollViewMock
+    style={
+      Object {
+        "height": "100%",
+        "left": 0,
+        "right": 0,
+        "top": 70,
+        "zIndex": 0,
+      }
+    }
+  />
 </View>
 `;
