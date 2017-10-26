@@ -33,7 +33,6 @@ export default class CommentsList extends Component {
   }
 
   showComments = () => {
-    console.log(typeof(this.state.data))
     return (this.state.data.map(function(comment, key){
       return <Comment
           key={key}
