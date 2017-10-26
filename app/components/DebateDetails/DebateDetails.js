@@ -8,7 +8,8 @@ import {
   Text,
   AsyncStorage,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  BackHandler
 } from 'react-native';
 
 import styles from './styles'
@@ -82,7 +83,15 @@ export default class DebateDetails extends Component {
     this.setState({ isLoading: false, clearId: clearId })
   }
 
+  componentWillMount() {
+    BackHandler.addEventListener('hardwareBackPress', function() {
+      this.props.history.goBack()
+      return true
+    }.bind(this))
+  }
+
   componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress')
     clearTimeout(this.state.clearId)
   }
 
