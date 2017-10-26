@@ -1,12 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "bottom": 0,
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
   <View
     style={
       Object {
+        "height": 70,
         "left": 0,
-        "position": "absolute",
         "right": 0,
         "top": 0,
         "zIndex": 2,
@@ -16,13 +26,12 @@ exports[`renders correctly 1`] = `
     <Navbar />
   </View>
   <ScrollViewMock
+    onContentSizeChange={[Function]}
     style={
       Object {
-        "height": "100%",
+        "bottom": 0,
         "left": 0,
         "right": 0,
-        "top": 70,
-        "zIndex": 0,
       }
     }
   />

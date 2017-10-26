@@ -1,8 +1,8 @@
 import 'react-native';
 import React from 'react';
-import Comments from 'app/components/Comments/Comments'
+import CommentsList from 'app/components/CommentsList/CommentsList'
 
 it('renders correctly', () => {
-  const wrapper = shallow(<Comments />)
+  const wrapper = shallow(<CommentsList />)
   expect(wrapper).toMatchSnapshot();
 });
