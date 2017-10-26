@@ -11,10 +11,10 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import NavigationBar from 'react-native-navigation-bar';
 import styles from './styles'
 import Api from '/app/api/Api'
 import AlertModal from '/app/components/AlertModal'
+import Navbar from '/app/components/Navbar'
 
 export default class DebateDetails extends Component {
   constructor(props) {
@@ -102,12 +102,7 @@ export default class DebateDetails extends Component {
 
     return (
       <View style={styles.navContainer}>
-        <NavigationBar
-          title={'EL Debate'}
-          height={50}
-          titleColor={'#fff'}
-          backgroundColor={'#4CC359'}
-        />
+        <Navbar history={this.props.history}/>
         <View style={styles.footer}>
           <Image source={require('/resources/images/backgroundimg.png')} style={styles.backgroundImage} />
         </View>
