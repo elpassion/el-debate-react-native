@@ -15,7 +15,7 @@ import { Redirect, Route } from "react-router-native";
 import NavigationBar from 'react-native-navigation-bar';
 import Api from '/app/api/Api'
 import Keyboard from 'Keyboard';
-import AlertModal from '/app/components/AlertModal'
+import AlertModal from '/app/components/Shared/AlertModal'
 
 export default class HomePage extends Component {
   constructor(props) {

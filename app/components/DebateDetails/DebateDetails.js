@@ -14,8 +14,8 @@ import {
 
 import styles from './styles'
 import Api from '/app/api/Api'
-import AlertModal from '/app/components/AlertModal'
-import Navbar from '/app/components/Navbar'
+import AlertModal from '/app/components/Shared/AlertModal'
+import Navbar from '/app/components/Shared/Navbar'
 
 export default class DebateDetails extends Component {
   constructor(props) {
