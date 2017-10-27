@@ -9,7 +9,8 @@ import {
   AsyncStorage,
   ScrollView,
   TouchableOpacity,
-  BackHandler
+  BackHandler,
+  ActivityIndicator,
 } from 'react-native';
 import Button from 'apsl-react-native-button'
 import styles from './styles'
@@ -112,6 +113,13 @@ export default class DebateDetails extends Component {
         require('/resources/images/NeutralIconGrey.png')
 
     return (
+      !this.state.isFetched ?
+      <View style={styles.loadingView}>
+        <ActivityIndicator size='large' style={styles.activityIndicator}/>
+        <Text style={styles.description}>
+          Debate is being fetched.
+        </Text>
+      </View> :
       <View style={styles.navContainer}>
         <Navbar history={this.props.history}/>
         <View style={styles.container}>

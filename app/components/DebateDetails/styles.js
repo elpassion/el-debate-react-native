@@ -121,5 +121,12 @@ export default StyleSheet.create({
     fontFamily: 'helvetica-neue-lt',
     fontSize: 14,
     color: '#fff'
+  },
+  loadingView: {
+    alignSelf: 'center',
+    marginTop: 250
+  },
+  activityIndicator: {
+    marginBottom: 20
   }
 })

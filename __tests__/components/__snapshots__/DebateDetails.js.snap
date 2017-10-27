@@ -154,343 +154,41 @@ exports[`renders correctly 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
+      "alignSelf": "center",
+      "marginTop": 250,
     }
   }
 >
-  <Navbar />
-  <View
+  <ActivityIndicator
+    animating={true}
+    color="#999999"
+    hidesWhenStopped={true}
+    size="large"
     style={
       Object {
-        "flex": 1,
-        "position": "absolute",
-        "top": 85,
+        "marginBottom": 20,
+      }
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    disabled={false}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "color": "#B8B8B8",
+        "fontFamily": "helvetica-neue-md",
+        "fontSize": 12,
+        "marginBottom": 20,
+        "marginLeft": 20,
+        "marginRight": 20,
       }
     }
   >
-    <ScrollViewMock
-      style={
-        Object {
-          "flex": 1,
-          "zIndex": 1,
-        }
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "backgroundColor": "transparent",
-            "color": "#B8B8B8",
-            "fontFamily": "helvetica-neue-md",
-            "fontSize": 12,
-            "marginBottom": 20,
-            "marginLeft": 20,
-            "marginRight": 20,
-          }
-        }
-      >
-        Our debate is about:
-      </Text>
-      <View
-        style={
-          Object {
-            "alignSelf": "center",
-            "borderColor": "rgba(0, 0, 0, 0.3)",
-            "borderRadius": 5,
-            "borderStyle": "solid",
-            "borderWidth": 0.08,
-            "height": 120,
-            "justifyContent": "center",
-            "marginBottom": 20,
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 1,
-            },
-            "shadowOpacity": 0.08,
-            "shadowRadius": 2,
-            "width": "90%",
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "alignSelf": "center",
-              "color": "#4A4A4A",
-              "fontFamily": "helvetica-neue-md",
-              "fontSize": 24,
-              "marginLeft": 20,
-              "marginRight": 20,
-            }
-          }
-        />
-      </View>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "backgroundColor": "transparent",
-            "color": "#B8B8B8",
-            "fontFamily": "helvetica-neue-md",
-            "fontSize": 12,
-            "marginBottom": 20,
-            "marginLeft": 20,
-            "marginRight": 20,
-          }
-        }
-      >
-        Choose your side with one of the following:
-      </Text>
-      <TouchableOpacity
-        activeOpacity={0.2}
-        disabled={false}
-        focusedOpacity={0.7}
-        onPress={[Function]}
-        style={
-          Object {
-            "alignSelf": "center",
-            "backgroundColor": "white",
-            "borderColor": "rgba(0, 0, 0, 0.3)",
-            "borderRadius": 5,
-            "borderStyle": "solid",
-            "borderWidth": 0.08,
-            "flex": 1,
-            "flexDirection": "row",
-            "height": 60,
-            "justifyContent": "space-between",
-            "marginBottom": 20,
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 1,
-            },
-            "shadowOpacity": 0.08,
-            "shadowRadius": 2,
-            "width": "90%",
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "#0098E3",
-              "fontFamily": "helvetica-neue-lt",
-              "fontSize": 24,
-              "marginLeft": 20,
-              "marginTop": 15,
-            }
-          }
-        />
-        <Image
-          source={1}
-          style={
-            Object {
-              "marginRight": 20,
-              "marginTop": 15,
-            }
-          }
-        />
-      </TouchableOpacity>
-      <TouchableOpacity
-        activeOpacity={0.2}
-        disabled={false}
-        focusedOpacity={0.7}
-        onPress={[Function]}
-        style={
-          Object {
-            "alignSelf": "center",
-            "backgroundColor": "white",
-            "borderColor": "rgba(0, 0, 0, 0.3)",
-            "borderRadius": 5,
-            "borderStyle": "solid",
-            "borderWidth": 0.08,
-            "flex": 1,
-            "flexDirection": "row",
-            "height": 60,
-            "justifyContent": "space-between",
-            "marginBottom": 20,
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 1,
-            },
-            "shadowOpacity": 0.08,
-            "shadowRadius": 2,
-            "width": "90%",
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "#E44043",
-              "fontFamily": "helvetica-neue-lt",
-              "fontSize": 24,
-              "marginLeft": 20,
-              "marginTop": 15,
-            }
-          }
-        />
-        <Image
-          source={1}
-          style={
-            Object {
-              "marginRight": 20,
-              "marginTop": 17,
-            }
-          }
-        />
-      </TouchableOpacity>
-      <TouchableOpacity
-        activeOpacity={0.2}
-        disabled={false}
-        focusedOpacity={0.7}
-        onPress={[Function]}
-        style={
-          Object {
-            "alignSelf": "center",
-            "backgroundColor": "white",
-            "borderColor": "rgba(0, 0, 0, 0.3)",
-            "borderRadius": 5,
-            "borderStyle": "solid",
-            "borderWidth": 0.08,
-            "flex": 1,
-            "flexDirection": "row",
-            "height": 60,
-            "justifyContent": "space-between",
-            "marginBottom": 20,
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 1,
-            },
-            "shadowOpacity": 0.08,
-            "shadowRadius": 2,
-            "width": "90%",
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "color": "#8F8F8F",
-              "fontFamily": "helvetica-neue-lt",
-              "fontSize": 24,
-              "marginLeft": 20,
-              "marginTop": 15,
-            }
-          }
-        />
-        <Image
-          source={1}
-          style={
-            Object {
-              "marginRight": 20,
-              "marginTop": 15,
-            }
-          }
-        />
-      </TouchableOpacity>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "backgroundColor": "transparent",
-            "color": "#B8B8B8",
-            "fontFamily": "helvetica-neue-md",
-            "fontSize": 12,
-            "marginBottom": 20,
-            "marginLeft": 20,
-            "marginRight": 20,
-          }
-        }
-      >
-        Remember that you can change your mind before debate ends, thats why we are here!
-      </Text>
-    </ScrollViewMock>
-    <View
-      style={
-        Object {
-          "bottom": -15,
-        }
-      }
-    >
-      <Image
-        source={1}
-        style={
-          Object {
-            "alignSelf": "center",
-            "bottom": -70,
-            "position": "absolute",
-            "zIndex": 0,
-          }
-        }
-      />
-      <Button
-        isDisabled={true}
-        onPress={[Function]}
-        style={
-          Object {
-            "alignSelf": "center",
-            "backgroundColor": "#4CC359",
-            "borderColor": "#fff",
-            "borderRadius": 0,
-            "bottom": 0,
-            "height": 40,
-            "width": "80%",
-          }
-        }
-        title="Chat"
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "color": "#fff",
-              "fontFamily": "helvetica-neue-lt",
-              "fontSize": 14,
-            }
-          }
-        >
-          Chat
-        </Text>
-      </Button>
-    </View>
-  </View>
-  <AlertModal />
+    Debate is being fetched.
+  </Text>
 </View>
 `;
 
