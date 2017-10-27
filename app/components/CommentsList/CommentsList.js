@@ -1,5 +1,12 @@
 import React, { Component } from 'react'
-import { View, ScrollView, Text, AsyncStorage, StyleSheet } from 'react-native';
+import {
+  View,
+  ScrollView,
+  Text,
+  AsyncStorage,
+  StyleSheet,
+  ActivityIndicator
+} from 'react-native';
 import styles from './styles'
 import Navbar from '/app/components/Shared/Navbar'
 import Svg, { Circle } from 'react-native-svg';
@@ -12,7 +19,8 @@ export default class CommentsList extends Component {
     super(props)
 
     this.state = {
-      data: []
+      data: [],
+      isFetched: false
     }
 
     AsyncStorage.getItem('authToken')
@@ -29,7 +37,7 @@ export default class CommentsList extends Component {
   }
 
   _handleCommentsResponse = (response) => {
-    this.setState({ data: response.comments })
+    this.setState({ data: response.comments, isFetched: true })
   }
 
   showComments = () => {
@@ -47,6 +55,13 @@ export default class CommentsList extends Component {
 
   render() {
     return (
+      !this.state.isFetched ?
+      <View style={styles.loadingView}>
+        <ActivityIndicator size='large' style={styles.activityIndicator}/>
+        <Text style={styles.description}>
+          Comments are being fetched.
+        </Text>
+      </View> :
       <View style={StyleSheet.absoluteFill}>
         <View style={styles.navContainer}>
           <Navbar history={this.props.history}/>

@@ -4,36 +4,40 @@ exports[`renders correctly 1`] = `
 <View
   style={
     Object {
-      "bottom": 0,
-      "left": 0,
-      "position": "absolute",
-      "right": 0,
-      "top": 0,
+      "alignSelf": "center",
+      "marginTop": 250,
     }
   }
 >
-  <View
+  <ActivityIndicator
+    animating={true}
+    color="#999999"
+    hidesWhenStopped={true}
+    size="large"
     style={
       Object {
-        "height": 70,
-        "left": 0,
-        "right": 0,
-        "top": 0,
-        "zIndex": 2,
-      }
-    }
-  >
-    <Navbar />
-  </View>
-  <ScrollViewMock
-    onContentSizeChange={[Function]}
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
+        "marginBottom": 20,
       }
     }
   />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    disabled={false}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "color": "#B8B8B8",
+        "fontFamily": "helvetica-neue-md",
+        "fontSize": 12,
+        "marginBottom": 20,
+        "marginLeft": 20,
+        "marginRight": 20,
+      }
+    }
+  >
+    Comments are being fetched.
+  </Text>
 </View>
 `;
