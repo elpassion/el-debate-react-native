@@ -7,6 +7,14 @@ import AlertModal from '/app/components/Shared/AlertModal'
 import Api from '/app/api/Api'
 
 export default class Comment extends Component {
+
+  getTime = () => {
+    this.props.createdAt.getHours() +
+    ':' +
+    (this.props.createdAt.getMinutes() < 10 ? '0' : '') +
+    this.props.createdAt.getMinutes()
+  }
+  
   render() {
     return (
       <View style={{backgroundColor: false ? '#f7f7f7' : 'transparent'}}>
@@ -20,7 +28,7 @@ export default class Comment extends Component {
             <Text style={styles.commentText}>{this.props.content}</Text>
           </View>
           <View style={styles.timeBox}>
-            <Text style={styles.time}>{this.props.createdAt.getHours() + ':' + this.props.createdAt.getMinutes() }</Text>
+            <Text style={styles.time}>{this.getTime}</Text>
           </View>
         </View>
         <View style={styles.commentDash}/>
