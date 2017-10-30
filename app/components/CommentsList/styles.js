@@ -11,7 +11,7 @@ export default StyleSheet.create({
   comments: {
     left: 0,
     right: 0,
-    bottom: 0
+    bottom: 40
   },
   description: {
     marginLeft: 20,
@@ -36,5 +36,11 @@ export default StyleSheet.create({
     right: 20,
     height: 40
   },
+  newCommentBox: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    backgroundColor: 'white',
+    width: '100%'
   }
 })

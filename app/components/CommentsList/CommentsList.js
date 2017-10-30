@@ -16,6 +16,7 @@ import AlertModal from '/app/components/Shared/AlertModal'
 import Api from '/app/api/Api'
 import Comment from '/app/components/Comment/Comment'
 import Pusher from 'pusher-js/react-native';
+import Keyboard from 'Keyboard';
 
 export default class CommentsList extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ export default class CommentsList extends Component {
       data: [],
       isFetched: false,
       commentString: '',
+      inputLocation: 0
     }
 
     AsyncStorage.getItem('authToken')
@@ -57,6 +59,24 @@ export default class CommentsList extends Component {
           userInitialsColor={comment.user_initials_background_color}
         />
     }))
+  }
+
+  componentWillMount() {
+    Keyboard.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
+    Keyboard.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
+  }
+
+  componentWillUnmount() {
+    Keyboard.removeAllListeners('keyboardWillShow', (message) => console.log(message))
+    Keyboard.removeAllListeners('keyboardWillHide', (message) => console.log(message))
+  }
+
+  keyboardWillShow(e) {
+    this.setState({inputLocation: e.endCoordinates.height})
+  }
+
+  keyboardWillHide(e) {
+    this.setState({inputLocation: 0})
   }
 
   componentDidMount() {
@@ -107,11 +127,13 @@ export default class CommentsList extends Component {
         }}>
           {this.showComments()}
         </ScrollView>
+        <View style={[{ bottom: this.state.inputLocation }, styles.newCommentBox]}>
             <TextInput
               style={styles.commentInput}
               onChange={this._onCommentTextChanged}
               placeholder='Add comment'
               onSubmitEditing={this._onAddCommentPressed}/>
+        </View>
       </View>
     )
   }
