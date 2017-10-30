@@ -98,53 +98,57 @@ exports[`DebateDetails 1`] = `
         />
       </View>
     </ScrollViewMock>
-    <View
-      style={
-        Object {
-          "bottom": 0,
-        }
-      }
+    <TouchableWithoutFeedback
+      onPress={[Function]}
     >
-      <Image
-        source={1}
+      <View
         style={
           Object {
-            "alignSelf": "center",
             "bottom": 0,
           }
         }
-      />
-      <Button
-        onPress={[Function]}
-        style={
-          Object {
-            "alignSelf": "center",
-            "backgroundColor": "#4CC359",
-            "borderColor": "#fff",
-            "borderRadius": 0,
-            "bottom": 120,
-            "height": 40,
-            "width": "80%",
-          }
-        }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
+        <Image
+          source={1}
           style={
             Object {
-              "color": "#fff",
-              "fontFamily": "helvetica-neue-lt",
-              "fontSize": 14,
+              "alignSelf": "center",
+              "bottom": 0,
+            }
+          }
+        />
+        <Button
+          onPress={[Function]}
+          style={
+            Object {
+              "alignSelf": "center",
+              "backgroundColor": "#4CC359",
+              "borderColor": "#fff",
+              "borderRadius": 0,
+              "bottom": 120,
+              "height": 40,
+              "width": "80%",
             }
           }
         >
-          Log in
-        </Text>
-      </Button>
-    </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#fff",
+                "fontFamily": "helvetica-neue-lt",
+                "fontSize": 14,
+              }
+            }
+          >
+            Log in
+          </Text>
+        </Button>
+      </View>
+    </TouchableWithoutFeedback>
   </View>
   <AlertModal />
 </View>
@@ -290,53 +294,57 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
         />
       </View>
     </ScrollViewMock>
-    <View
-      style={
-        Object {
-          "bottom": 0,
-        }
-      }
+    <TouchableWithoutFeedback
+      onPress={[Function]}
     >
-      <Image
-        source={1}
+      <View
         style={
           Object {
-            "alignSelf": "center",
             "bottom": 0,
           }
         }
-      />
-      <Button
-        onPress={[Function]}
-        style={
-          Object {
-            "alignSelf": "center",
-            "backgroundColor": "#4CC359",
-            "borderColor": "#fff",
-            "borderRadius": 0,
-            "bottom": 120,
-            "height": 40,
-            "width": "80%",
-          }
-        }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          disabled={false}
-          ellipsizeMode="tail"
+        <Image
+          source={1}
           style={
             Object {
-              "color": "#fff",
-              "fontFamily": "helvetica-neue-lt",
-              "fontSize": 14,
+              "alignSelf": "center",
+              "bottom": 0,
+            }
+          }
+        />
+        <Button
+          onPress={[Function]}
+          style={
+            Object {
+              "alignSelf": "center",
+              "backgroundColor": "#4CC359",
+              "borderColor": "#fff",
+              "borderRadius": 0,
+              "bottom": 120,
+              "height": 40,
+              "width": "80%",
             }
           }
         >
-          Log in
-        </Text>
-      </Button>
-    </View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#fff",
+                "fontFamily": "helvetica-neue-lt",
+                "fontSize": 14,
+              }
+            }
+          >
+            Log in
+          </Text>
+        </Button>
+      </View>
+    </TouchableWithoutFeedback>
   </View>
   <AlertModal />
 </View>

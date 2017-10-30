@@ -7,7 +7,8 @@ import {
   Image,
   Platform,
   AsyncStorage,
-  ScrollView
+  ScrollView,
+  TouchableWithoutFeedback
 } from 'react-native';
 import Button from 'apsl-react-native-button'
 import styles from './styles'
@@ -122,16 +123,18 @@ export default class HomePage extends Component {
             <Image style={styles.logoImage} source={require('/resources/images/logo.png')}/>
             {CodeInput}
           </ScrollView>
-          <View style={{ bottom: this.state.footerLocation }}>
-            <Image source={require('/resources/images/backgroundimg.png')}
-                   style={{ bottom: this.state.imgLocation,
-                            alignSelf: 'center' }} />
-            <Button onPress={this._onLoginPressed} style={styles.button}>
-              <Text style={styles.buttonText}>
-                Log in
-              </Text>
-            </Button>
-          </View>
+          <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss() }}>
+            <View style={{ bottom: this.state.footerLocation }}>
+              <Image source={require('/resources/images/backgroundimg.png')}
+                     style={{ bottom: this.state.imgLocation,
+                              alignSelf: 'center' }} />
+              <Button onPress={this._onLoginPressed} style={styles.button}>
+                <Text style={styles.buttonText}>
+                  Log in
+                </Text>
+              </Button>
+            </View>
+          </TouchableWithoutFeedback>
         </View>
         <AlertModal
           ref="alertModal"
