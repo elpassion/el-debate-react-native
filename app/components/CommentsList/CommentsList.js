@@ -6,6 +6,7 @@ import {
   Text,
   AsyncStorage,
   StyleSheet,
+  TextInput,
   ActivityIndicator
 } from 'react-native';
 import styles from './styles'
@@ -24,7 +25,8 @@ export default class CommentsList extends Component {
 
     this.state = {
       data: [],
-      isFetched: false
+      isFetched: false,
+      commentString: '',
     }
 
     AsyncStorage.getItem('authToken')
@@ -76,6 +78,14 @@ export default class CommentsList extends Component {
     });
   }
 
+  _onCommentTextChanged = (event) => {
+    this.setState({ commentString: event.nativeEvent.text });
+  };
+
+  _onAddCommentPressed = () => {
+    console.log('bang!')
+  }
+
   render() {
     return (
       !this.state.isFetched ?
@@ -97,6 +107,11 @@ export default class CommentsList extends Component {
         }}>
           {this.showComments()}
         </ScrollView>
+            <TextInput
+              style={styles.commentInput}
+              onChange={this._onCommentTextChanged}
+              placeholder='Add comment'
+              onSubmitEditing={this._onAddCommentPressed}/>
       </View>
     )
   }

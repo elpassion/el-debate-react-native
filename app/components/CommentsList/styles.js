@@ -28,5 +28,13 @@ export default StyleSheet.create({
   },
   activityIndicator: {
     marginBottom: 20
+  },
+  commentInput: {
+    width: '100%',
+    bottom: 0,
+    left: 20,
+    right: 20,
+    height: 40
+  },
   }
 })
