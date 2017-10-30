@@ -82,7 +82,7 @@ export default class DebateDetails extends Component {
     } else if (response.status === 403) {
       this.refs.alertModal.openModalAlert('Debate is closed.')
     }
-    var clearId = setTimeout(() => { this.setState({ answerPressed: false }) }, 2000);
+    var clearId = setTimeout(() => { this.setState({ answerPressed: false }) }, 500);
     this.setState({ isLoading: false, clearId: clearId })
   }
 
