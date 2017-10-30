@@ -49,4 +49,18 @@ export default class Api {
       }
     });
   }
+
+  static createComment (auth_token: string, content: string) {
+    const params = { text: content }
+
+    return fetch(BASE_URL + '/api/comments', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': auth_token
+      },
+      body: JSON.stringify(params)
+    });
+  }
 }

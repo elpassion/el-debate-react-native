@@ -29,7 +29,8 @@ export default class CommentsList extends Component {
       data: [],
       isFetched: false,
       commentString: '',
-      inputLocation: 0
+      inputLocation: 0,
+      authToken: ''
     }
 
     AsyncStorage.getItem('authToken')
@@ -37,6 +38,7 @@ export default class CommentsList extends Component {
   }
 
   getComments = (authToken) => {
+    this.setState({ authToken: authToken })
     Api.getComments(authToken)
       .then(response => response.json())
       .then(response => this._handleCommentsResponse(response))
@@ -104,7 +106,16 @@ export default class CommentsList extends Component {
   };
 
   _onAddCommentPressed = () => {
-    console.log('bang!')
+    Api.createComment(this.state.authToken, this.state.commentString)
+      .then(response => response.json())
+      .then(response => this._handleResponse(response))
+      .catch(error =>
+        console.log(error)
+      )
+  }
+
+  _handleResponse = (response) => {
+    this.refs.alertModal.openModalAlert('Your comment is being moderated.')
   }
 
   render() {
