@@ -53,6 +53,7 @@
   "dependencies": {
     "apsl-react-native-button": "^3.1.0",
     "expo": "^19.0.1",
+    "pusher-js": "^4.2.1",
     "react": "16.0.0-alpha.12",
     "react-native": "^0.46.1",
     "react-native-modalbox": "^1.4.2",
