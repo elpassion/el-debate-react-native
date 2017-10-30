@@ -70,7 +70,9 @@ export default class CommentsList extends Component {
 
     var commentChannel = pusher.subscribe('dashboard_channel_' + code);
     commentChannel.bind('comment_added', (data) => {
-      console.log(data)
+      var newData = this.state.data.slice();
+      newData.push(data);
+      this.setState({ data: newData })
     });
   }
 
