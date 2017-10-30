@@ -17,9 +17,14 @@ export default class AlertModal extends Component {
     }
   }
 
+  static defaultProps = {
+    animationDuration: 400,
+    bottomPosition: 0
+  };
+
   openModalAlert = (message) => {
     this.setState({ isOpen: true, message: message })
-    var clearId = setTimeout(() => { this.setState({ isOpen: false }) }, 500);
+    var clearId = setTimeout(() => { this.setState({ isOpen: false }) }, 2000);
     this.setState({ clearId: clearId })
   }
 
@@ -33,7 +38,8 @@ export default class AlertModal extends Component {
       <Modal
         isOpen={this.state.isOpen}
         onClosed={() => this.setState({isOpen: false})}
-        style={[styles.modal, styles.modal1]}
+        style={[{bottom: this.props.bottomPosition}, styles.modal]}
+        animationDuration={this.props.animationDuration}
         position={"bottom"}
         ref="alert"
         backdrop={false}>
@@ -46,12 +52,8 @@ export default class AlertModal extends Component {
 const styles = StyleSheet.create({
   modal: {
     justifyContent: 'center',
-    height: 30
-  },
-  modal1: {
     backgroundColor: "#4F4F4F",
-    height: 30,
-    bottom: 0
+    height: 30
   },
   modalText: {
     marginLeft: 20,

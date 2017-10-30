@@ -139,6 +139,11 @@ export default class CommentsList extends Component {
         }}>
           {this.showComments()}
         </ScrollView>
+        <AlertModal
+          ref="alertModal"
+          bottomPosition={60}
+          animationDuration={0}
+        />
         <View style={[{ bottom: this.state.inputLocation }, styles.newCommentBox]}>
           <View>
             <Text style={styles.commentInputText}>Share your thoughts:</Text>
