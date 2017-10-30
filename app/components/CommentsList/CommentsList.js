@@ -7,7 +7,8 @@ import {
   AsyncStorage,
   StyleSheet,
   TextInput,
-  ActivityIndicator
+  ActivityIndicator,
+  TouchableOpacity
 } from 'react-native';
 import styles from './styles'
 import Navbar from '/app/components/Shared/Navbar'
@@ -128,11 +129,22 @@ export default class CommentsList extends Component {
           {this.showComments()}
         </ScrollView>
         <View style={[{ bottom: this.state.inputLocation }, styles.newCommentBox]}>
+          <View>
+            <Text style={styles.commentInputText}>Share your thoughts:</Text>
             <TextInput
+              autoFocus={true}
               style={styles.commentInput}
               onChange={this._onCommentTextChanged}
               placeholder='Add comment'
               onSubmitEditing={this._onAddCommentPressed}/>
+          </View>
+          <TouchableOpacity
+            onPress={this._onAddCommentPressed}
+            style={styles.confirmationButton}>
+            <Text style={styles.confirmCommentIcon}>
+              >
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     )
