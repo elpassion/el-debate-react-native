@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { PUSHER_KEY, PUSHER_CLUSTER } from 'react-native-dotenv'
 import {
   View,
   ScrollView,
@@ -13,10 +14,13 @@ import Svg, { Circle } from 'react-native-svg';
 import AlertModal from '/app/components/Shared/AlertModal'
 import Api from '/app/api/Api'
 import Comment from '/app/components/Comment/Comment'
+import Pusher from 'pusher-js/react-native';
 
 export default class CommentsList extends Component {
   constructor(props) {
     super(props)
+
+    this.pusher = null
 
     this.state = {
       data: [],
@@ -51,6 +55,23 @@ export default class CommentsList extends Component {
           userInitialsColor={comment.user_initials_background_color}
         />
     }))
+  }
+
+  componentDidMount() {
+    AsyncStorage.getItem('code')
+      .then((value) => this.setupPusher(value))
+  }
+
+  setupPusher = (code) => {
+    var pusher = new Pusher(PUSHER_KEY, {
+      cluster: PUSHER_CLUSTER,
+      encrypted: true
+    });
+
+    var commentChannel = pusher.subscribe('dashboard_channel_' + code);
+    commentChannel.bind('comment_added', (data) => {
+      console.log(data)
+    });
   }
 
   render() {
