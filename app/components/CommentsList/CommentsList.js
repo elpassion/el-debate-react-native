@@ -100,7 +100,7 @@ export default class CommentsList extends Component {
       .then(response => response.json())
       .then(response => this._handleResponse(response))
       .catch(error =>
-        console.log(error)
+        this.refs.alertModal.openModalAlert(error)
       )
   }
 
