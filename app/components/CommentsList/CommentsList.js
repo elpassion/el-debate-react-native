@@ -108,6 +108,7 @@ export default class CommentsList extends Component {
     if (response.status === "pending") {
       this.refs.alertModal.openModalAlert('Your comment is being moderated.')
     }
+    this.refs.newCommentInput.clear()
   }
 
   render() {
@@ -147,6 +148,7 @@ export default class CommentsList extends Component {
           <View>
             <Text style={styles.commentInputText}>Share your thoughts:</Text>
             <TextInput
+              ref="newCommentInput"
               autoFocus={true}
               style={styles.commentInput}
               onChange={this._onCommentTextChanged}
