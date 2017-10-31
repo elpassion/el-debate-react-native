@@ -62,5 +62,44 @@ export default StyleSheet.create({
     width: 30,
     right: 15,
     position: 'absolute'
+  },
+  userDetailsModal: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 220,
+    aspectRatio: 1.5,
+    backgroundColor: "#f2f2f2",
+    borderColor: 'rgba(0, 0, 0, 0.3)',
+    borderRadius: 5,
+    borderStyle: 'solid',
+    borderWidth: (Platform.OS === 'ios') ? 0.08 : 0.3,
+  },
+  nameInput: {
+    height: 30,
+    alignSelf: 'center',
+    aspectRatio: 8,
+    backgroundColor: 'white',
+  },
+  userDetailsButton: {
+    height: (Platform.OS === 'ios') ? 30 : 40,
+    aspectRatio: 4,
+    borderRadius: 5,
+    marginTop: 10,
+    alignSelf: 'center',
+    borderColor: 'white',
+    backgroundColor: '#4CC359'
+  },
+  userDetailsButtonText: {
+    color: 'white',
+    fontSize: 15
+  },
+  inputBox: {
+    height: 35,
+    aspectRatio: 8,
+    marginBottom: 15,
+    borderRadius: 2,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 })

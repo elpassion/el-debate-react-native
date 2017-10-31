@@ -19,6 +19,8 @@ import Api from '/app/api/Api'
 import Comment from '/app/components/Comment/Comment'
 import Pusher from 'pusher-js/react-native';
 import Keyboard from 'Keyboard';
+import Modal from 'react-native-modalbox';
+import Button from 'apsl-react-native-button'
 
 export default class CommentsList extends Component {
   constructor(props) {
@@ -31,7 +33,10 @@ export default class CommentsList extends Component {
       isFetched: false,
       commentString: '',
       inputLocation: 0,
-      authToken: ''
+      authToken: '',
+      firstName: '',
+      lastName: '',
+      isOpen: false
     }
 
     AsyncStorage.getItem('authToken')
@@ -95,7 +100,23 @@ export default class CommentsList extends Component {
     this.setState({ commentString: event.nativeEvent.text });
   };
 
+  _onFirstNameTextChanged = (event) => {
+    this.setState({ firstName: event.nativeEvent.text });
+  };
+
+  _onLastNameTextChanged = (event) => {
+    this.setState({ lastName: event.nativeEvent.text });
+  };
+
   _onAddCommentPressed = () => {
+    if (this.state.firstName.trim() === '' || this.state.lastName.trim() === '') {
+      this.refs.userDetailsModal.open()
+    } else {
+      this._createComment()
+    }
+  }
+
+  _createComment = () => {
     Api.createComment(this.state.authToken, this.state.commentString)
       .then(response => response.json())
       .then(response => this._handleResponse(response))
@@ -132,6 +153,37 @@ export default class CommentsList extends Component {
         <View style={styles.navContainer}>
           <Navbar history={this.props.history}/>
         </View>
+        <Modal
+          style={styles.userDetailsModal}
+          ref="userDetailsModal"
+          isOpen={this.state.isOpen}
+          onClosed={() => this.setState({isOpen: false})}>
+            <View>
+              <Text style={styles.description}> Set your first name and last name to add comments </Text>
+              <View style={styles.inputBox}>
+                <TextInput
+                  ref="firstNameInput"
+                  autoFocus={true}
+                  style={styles.nameInput}
+                  onChange={this._onFirstNameTextChanged}
+                  placeholder='First Name'
+                  autoCorrect={false}
+                  onSubmitEditing={() => this.focusNextField('lastNameInput')}/>
+              </View>
+              <View style={styles.inputBox}>
+                <TextInput
+                  ref="lastNameInput"
+                  style={styles.nameInput}
+                  onChange={this._onLastNameTextChanged}
+                  placeholder='Last Name'
+                  autoCorrect={false}
+                  onSubmitEditing={this._onNewNamePressed}/>
+              </View>
+              <Button title="Set name" onPress={() => this.refs.userDetailsModal.close()} style={styles.userDetailsButton}>
+                <Text style={styles.userDetailsButtonText}>Set name</Text>
+              </Button>
+            </View>
+        </Modal>
         <FlatList
           ref="flatList"
           style={styles.comments}
