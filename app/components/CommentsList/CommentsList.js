@@ -8,7 +8,8 @@ import {
   StyleSheet,
   TextInput,
   ActivityIndicator,
-  TouchableOpacity
+  TouchableOpacity,
+  FlatList
 } from 'react-native';
 import styles from './styles'
 import Navbar from '/app/components/Shared/Navbar'
@@ -49,19 +50,7 @@ export default class CommentsList extends Component {
 
   _handleCommentsResponse = (response) => {
     this.setState({ data: response.comments, isFetched: true })
-  }
-
-  showComments = () => {
-    return (this.state.data.map(function(comment, key){
-      return <Comment
-          key={key}
-          content={comment.content}
-          createdAt={new Date(comment.created_at)}
-          fullName={comment.full_name}
-          userInitials={comment.user_initials}
-          userInitialsColor={comment.user_initials_background_color}
-        />
-    }))
+    setTimeout(() => {this.refs.flatList.scrollToEnd()}, 50)
   }
 
   componentWillMount() {
@@ -98,6 +87,7 @@ export default class CommentsList extends Component {
       var newData = this.state.data.slice();
       newData.push(data);
       this.setState({ data: newData })
+      setTimeout(() => {this.refs.flatList.scrollToEnd()}, 50)
     });
   }
 
@@ -119,6 +109,14 @@ export default class CommentsList extends Component {
   }
 
   render() {
+    const comment = (comment) =>
+      <Comment
+         content={comment.content}
+         createdAt={new Date(comment.created_at)}
+         fullName={comment.full_name}
+         userInitials={comment.user_initials}
+         userInitialsColor={comment.user_initials_background_color}
+       />
     return (
       !this.state.isFetched ?
       <View style={styles.loadingView}>
@@ -131,14 +129,13 @@ export default class CommentsList extends Component {
         <View style={styles.navContainer}>
           <Navbar history={this.props.history}/>
         </View>
-        <ScrollView
+        <FlatList
+          ref="flatList"
           style={styles.comments}
-          ref={ref => this.scrollView = ref}
-          onContentSizeChange={(contentWidth, contentHeight)=>{
-            this.scrollView.scrollToEnd({animated: true});
-        }}>
-          {this.showComments()}
-        </ScrollView>
+          data={this.state.data}
+          renderItem={({item}) => comment(item)}
+          keyExtractor={item => item.id}
+        />
         <AlertModal
           ref="alertModal"
           bottomPosition={60}
