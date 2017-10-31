@@ -168,6 +168,7 @@ export default class CommentsList extends Component {
                   onChange={this._onFirstNameTextChanged}
                   placeholder='First Name'
                   autoCorrect={false}
+                  underlineColorAndroid='transparent'
                   onSubmitEditing={() => this.focusNextField('lastNameInput')}/>
               </View>
               <View style={styles.inputBox}>
@@ -177,6 +178,7 @@ export default class CommentsList extends Component {
                   onChange={this._onLastNameTextChanged}
                   placeholder='Last Name'
                   autoCorrect={false}
+                  underlineColorAndroid='transparent'
                   onSubmitEditing={this._onNewNamePressed}/>
               </View>
               <Button title="Set name" onPress={() => this.refs.userDetailsModal.close()} style={styles.userDetailsButton}>
@@ -205,6 +207,7 @@ export default class CommentsList extends Component {
               style={styles.commentInput}
               onChange={this._onCommentTextChanged}
               placeholder='Add comment'
+              underlineColorAndroid='transparent'
               onSubmitEditing={this._onAddCommentPressed}/>
           </View>
           <TouchableOpacity
