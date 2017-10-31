@@ -105,7 +105,9 @@ export default class CommentsList extends Component {
   }
 
   _handleResponse = (response) => {
-    this.refs.alertModal.openModalAlert('Your comment is being moderated.')
+    if (response.status === "pending") {
+      this.refs.alertModal.openModalAlert('Your comment is being moderated.')
+    }
   }
 
   render() {
