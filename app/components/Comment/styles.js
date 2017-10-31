@@ -3,11 +3,11 @@ import { StyleSheet, Platform } from 'react-native'
 export default StyleSheet.create({
   comment: {
     top: 0,
-    height: 80,
     marginLeft: 0,
     marginRight: 15,
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start'
   },
   userInitials: {
     position: 'absolute',
@@ -23,29 +23,25 @@ export default StyleSheet.create({
     zIndex: 1
   },
   commentBox: {
-    marginRight: 80,
-    marginTop: 5
+    left: 70,
+    top: 20,
+    width: '60%',
+    position: 'absolute',
+    overflow: 'scroll'
   },
   commentUser: {
-    position: 'relative',
-    marginTop: 15,
-    left: -30,
-    fontFamily: 'helvetica-neue-md'
+    fontFamily: 'helvetica-neue-md',
   },
   commentText: {
-    position: 'relative',
     marginTop: 5,
-    left: -30,
-    marginRight: 30
+    marginBottom: 20
   },
-  timeBox: {
+  time: {
+    color: '#B8B8B8',
     marginTop: 20,
     right: 0,
     top: 0,
     position: 'absolute'
-  },
-  time: {
-    color: '#B8B8B8'
   },
   commentDash: {
     borderBottomColor: '#f2f2f2',

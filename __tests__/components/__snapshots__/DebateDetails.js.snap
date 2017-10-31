@@ -150,7 +150,10 @@ exports[`DebateDetails 1`] = `
       </View>
     </TouchableWithoutFeedback>
   </View>
-  <AlertModal />
+  <AlertModal
+    animationDuration={400}
+    bottomPosition={0}
+  />
 </View>
 `;
 
@@ -346,6 +349,9 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
       </View>
     </TouchableWithoutFeedback>
   </View>
-  <AlertModal />
+  <AlertModal
+    animationDuration={400}
+    bottomPosition={0}
+  />
 </View>
 `;

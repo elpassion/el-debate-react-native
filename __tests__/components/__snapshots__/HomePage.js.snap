@@ -150,6 +150,9 @@ exports[`renders correctly 1`] = `
       </View>
     </TouchableWithoutFeedback>
   </View>
-  <AlertModal />
+  <AlertModal
+    animationDuration={400}
+    bottomPosition={0}
+  />
 </View>
 `;

@@ -9,9 +9,9 @@ export default StyleSheet.create({
     height: (Platform.OS == 'ios') ? 70 : 50
   },
   comments: {
-    left: 0,
-    right: 0,
-    bottom: 65
+    flex: 1,
+    marginBottom: 60,
+    top: 0
   },
   description: {
     marginLeft: 20,

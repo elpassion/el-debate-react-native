@@ -9,26 +9,28 @@ import Api from '/app/api/Api'
 export default class Comment extends Component {
 
   getTime = () => {
-    this.props.createdAt.getHours() +
-    ':' +
-    (this.props.createdAt.getMinutes() < 10 ? '0' : '') +
-    this.props.createdAt.getMinutes()
+    return this.props.createdAt.getHours() +
+           ':' +
+           (this.props.createdAt.getMinutes() < 10 ? '0' : '') +
+           this.props.createdAt.getMinutes()
   }
-  
+
   render() {
     return (
       <View style={{backgroundColor: false ? '#f7f7f7' : 'transparent'}}>
         <View style={styles.comment}>
-          <Text style={styles.userInitials}>{this.props.userInitials}</Text>
-          <Svg height="100" width="100" style={styles.circle}>
-            <Circle cx="35" cy="40" r="23" fill={this.props.userInitialsColor}/>
-          </Svg>
+          <View>
+            <Text style={styles.userInitials}>{this.props.userInitials}</Text>
+            <Svg height="100" width="100" style={styles.circle}>
+              <Circle cx="35" cy="40" r="23" fill={this.props.userInitialsColor}/>
+            </Svg>
+          </View>
           <View style={styles.commentBox}>
             <Text style={styles.commentUser}>{this.props.fullName}</Text>
             <Text style={styles.commentText}>{this.props.content}</Text>
           </View>
-          <View style={styles.timeBox}>
-            <Text style={styles.time}>{this.getTime}</Text>
+          <View>
+            <Text style={styles.time}>{this.getTime()}</Text>
           </View>
         </View>
         <View style={styles.commentDash}/>
