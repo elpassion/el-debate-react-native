@@ -117,7 +117,12 @@ export default class CommentsList extends Component {
   }
 
   _createComment = () => {
-    Api.createComment(this.state.authToken, this.state.commentString)
+    Api.createComment(
+      this.state.authToken,
+      this.state.commentString,
+      this.state.firstName,
+      this.state.lastName
+    )
       .then(response => response.json())
       .then(response => this._handleResponse(response))
       .catch(error =>

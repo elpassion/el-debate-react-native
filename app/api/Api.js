@@ -50,8 +50,12 @@ export default class Api {
     });
   }
 
-  static createComment (auth_token: string, content: string) {
-    const params = { text: content }
+  static createComment (auth_token: string, content: string, first_name: string, last_name: string) {
+    const params = { 
+      text: content,
+      first_name: first_name,
+      last_name: last_name
+    }
 
     return fetch(BASE_URL + '/api/comments', {
       method: 'POST',
