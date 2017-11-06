@@ -143,6 +143,7 @@ export default class CommentsList extends Component {
       this.refs.alertModal.openModalAlert('Your comment is being moderated.')
     }
     AsyncStorage.multiSet([['firstName', this.state.firstName], ['lastName', this.state.lastName]])
+    this.setState({commentString: ''})
     this.refs.newCommentInput.clear()
   }
 
