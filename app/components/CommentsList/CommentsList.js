@@ -36,7 +36,8 @@ export default class CommentsList extends Component {
       authToken: '',
       firstName: '',
       lastName: '',
-      isOpen: false
+      isOpen: false,
+      code: ''
     }
 
     AsyncStorage.getItem('authToken')
@@ -77,8 +78,14 @@ export default class CommentsList extends Component {
   }
 
   componentDidMount() {
-    AsyncStorage.getItem('code')
-      .then((value) => this.setupPusher(value))
+    AsyncStorage.multiGet(['code', 'firstName', 'lastName'])
+      .then((values) => this.multiStateSet(values))
+  }
+
+  multiStateSet = (values) => {
+    obj = {}
+    values.forEach((value) => value[1] ? obj[value[0]] = value[1] : null)
+    this.setState(obj)
   }
 
   setupPusher = (code) => {
@@ -134,6 +141,7 @@ export default class CommentsList extends Component {
     if (response.status === "pending") {
       this.refs.alertModal.openModalAlert('Your comment is being moderated.')
     }
+    AsyncStorage.multiSet([['firstName', this.state.firstName], ['lastName', this.state.lastName]])
     this.refs.newCommentInput.clear()
   }
 
