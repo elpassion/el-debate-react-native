@@ -226,6 +226,7 @@ export default class CommentsList extends Component {
               onSubmitEditing={this._onAddCommentPressed}/>
           </View>
           <TouchableOpacity
+            disabled={this.state.commentString === ''}
             onPress={this._onAddCommentPressed}
             style={styles.confirmationButton}>
             <Text style={styles.confirmCommentIcon}>
