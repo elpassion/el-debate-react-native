@@ -116,7 +116,7 @@ export default class CommentsList extends Component {
   };
 
   _onAddCommentPressed = () => {
-    if (this.state.firstName.trim() === '' || this.state.lastName.trim() === '') {
+    if (this.state.firstName === '' || this.state.lastName === '') {
       this.refs.userDetailsModal.open()
     } else {
       this._createComment()
