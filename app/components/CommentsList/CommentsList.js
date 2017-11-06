@@ -79,13 +79,14 @@ export default class CommentsList extends Component {
 
   componentDidMount() {
     AsyncStorage.multiGet(['code', 'firstName', 'lastName'])
-      .then((values) => this.multiStateSet(values))
+      .then((values) => this._handleAsyncResponse(values))
   }
 
-  multiStateSet = (values) => {
+  _handleAsyncResponse = (values) => {
     obj = {}
     values.forEach((value) => value[1] ? obj[value[0]] = value[1] : null)
     this.setState(obj)
+    this.setupPusher(this.state.code)
   }
 
   setupPusher = (code) => {
