@@ -58,6 +58,7 @@
     "react-native": "^0.46.1",
     "react-native-modalbox": "^1.4.2",
     "react-native-navigation-bar": "git+https://github.com/jestemkarol/react-native-navigation-bar.git",
+    "react-native-progress": "^3.4.0",
     "react-navigation": "^1.0.0-beta.11",
     "react-router-native": "^4.1.1"
   }

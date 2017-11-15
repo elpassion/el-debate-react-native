@@ -15,6 +15,7 @@ import Button from 'apsl-react-native-button'
 import styles from './styles'
 import Api from '/app/api/Api'
 import AlertModal from '/app/components/Shared/AlertModal'
+import * as Progress from 'react-native-progress';
 
 export default class DebateDetails extends Component {
   constructor(props) {
@@ -122,7 +123,7 @@ export default class DebateDetails extends Component {
                 {this.state.topic}
               </Text>
             </View>
-            <Text style={styles.description}>
+            <Text style={[styles.description, { marginBottom: 0 }]}>
               Choose your side with one of the following:
             </Text>
             <TouchableOpacity
@@ -136,6 +137,9 @@ export default class DebateDetails extends Component {
                 source={PositiveIcon}
                 style={styles.positiveAnswerIcon}/>
             </TouchableOpacity>
+            <View style={styles.progressBar}>
+              <Progress.Bar progress={0} color={'#0098E3'} height={2} width={null} indeterminate={false} borderWidth={0}/>
+            </View>
             <TouchableOpacity
               disabled={this.state.answerPressed || !this.state.isFetched }
               style={styles.answerBox}
@@ -147,6 +151,9 @@ export default class DebateDetails extends Component {
                 source={NegativeIcon}
                 style={styles.negativeAnswerIcon}/>
             </TouchableOpacity>
+            <View style={styles.progressBar}>
+              <Progress.Bar progress={0} color={'#E44043'} height={2} width={null} indeterminate={false} borderWidth={0}/>
+            </View>
             <TouchableOpacity
               disabled={this.state.answerPressed || !this.state.isFetched }
               style={styles.answerBox}
@@ -158,7 +165,10 @@ export default class DebateDetails extends Component {
                 source={NeutralIcon}
                 style={styles.neutralAnswerIcon}/>
             </TouchableOpacity>
-            <Text style={styles.description}>
+            <View style={styles.progressBar}>
+              <Progress.Bar progress={0} color={'#8F8F8F'} height={2} width={null} indeterminate={false} borderWidth={0}/>
+            </View>
+            <Text style={[styles.description, { marginTop: 20 }]}>
               Remember that you can change your mind before debate ends, thats why we are here!
             </Text>
           </ScrollView>

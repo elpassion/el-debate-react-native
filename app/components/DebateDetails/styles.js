@@ -55,7 +55,7 @@ export default StyleSheet.create({
     borderRadius: 5,
     borderStyle: 'solid',
     borderWidth: (Platform.OS === 'ios') ? 0.08 : 0.3,
-    marginBottom: 20,
+    marginTop: 20,
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -122,5 +122,9 @@ export default StyleSheet.create({
     fontFamily: 'helvetica-neue-lt',
     fontSize: 14,
     color: '#fff'
+  },
+  progressBar: {
+    width: '90%',
+    alignSelf: 'center'
   }
 })
