@@ -156,13 +156,6 @@ export default class CommentsList extends Component {
          userInitialsColor={comment.user_initials_background_color}
        />
     return (
-      !this.state.isFetched ?
-      <View style={styles.loadingView}>
-        <ActivityIndicator size='large' style={styles.activityIndicator}/>
-        <Text style={styles.description}>
-          Comments are being fetched.
-        </Text>
-      </View> :
       <View style={[StyleSheet.absoluteFill, styles.navContainer]}>
         <Modal
           style={styles.userDetailsModal}
@@ -197,13 +190,22 @@ export default class CommentsList extends Component {
               </Button>
             </View>
         </Modal>
-        <FlatList
-          ref="flatList"
-          style={styles.comments}
-          data={this.state.data}
-          renderItem={({item}) => comment(item)}
-          keyExtractor={item => item.id}
-        />
+        {
+          !this.state.isFetched ?
+          <View style={styles.loadingView}>
+            <ActivityIndicator size='large' style={styles.activityIndicator}/>
+            <Text style={styles.description}>
+              Comments are being fetched.
+            </Text>
+          </View> :
+          <FlatList
+            ref="flatList"
+            style={styles.comments}
+            data={this.state.data}
+            renderItem={({item}) => comment(item)}
+            keyExtractor={item => item.id}
+          />
+        }
         <AlertModal
           ref="alertModal"
           bottomPosition={60}
