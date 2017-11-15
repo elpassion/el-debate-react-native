@@ -17,7 +17,8 @@ export default styles = StyleSheet.create({
   },
   main: {
     flex: 1,
-    paddingTop: (Platform.OS === 'ios') ? 75 : 70,
+    paddingTop: (Platform.OS === 'ios') ? 75 : 0,
+    top: (Platform.OS === 'ios') ? 0 : 60
   },
   logoImage: {
     width: 106,
