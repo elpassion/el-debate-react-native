@@ -4,25 +4,15 @@ exports[`renders correctly 1`] = `
 <View
   style={
     Object {
+      "backgroundColor": "white",
       "flex": 1,
     }
   }
 >
-  <NavigationBar
-    backgroundColor="#4CC359"
-    height={50}
-    leftButtonTitle={null}
-    leftButtonTitleColor="#000"
-    rightButtonTitle={null}
-    rightButtonTitleColor="#000"
-    title="EL Debate"
-    titleColor="#fff"
-  />
   <View
     style={
       Object {
         "flex": 1,
-        "top": 100,
       }
     }
   >
@@ -30,6 +20,8 @@ exports[`renders correctly 1`] = `
       style={
         Object {
           "flex": 1,
+          "paddingTop": 75,
+          "top": 0,
         }
       }
     >
@@ -113,7 +105,7 @@ exports[`renders correctly 1`] = `
           style={
             Object {
               "alignSelf": "center",
-              "bottom": 0,
+              "bottom": -80,
             }
           }
         />
@@ -125,7 +117,7 @@ exports[`renders correctly 1`] = `
               "backgroundColor": "#4CC359",
               "borderColor": "#fff",
               "borderRadius": 0,
-              "bottom": 120,
+              "bottom": 20,
               "height": 40,
               "width": "80%",
             }

@@ -3,41 +3,287 @@
 exports[`renders correctly 1`] = `
 <View
   style={
-    Object {
-      "alignSelf": "center",
-      "marginTop": 250,
-    }
+    Array [
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
   }
 >
-  <ActivityIndicator
-    animating={true}
-    color="#999999"
-    hidesWhenStopped={true}
-    size="large"
+  <ModalBox
+    animationDuration={400}
+    backButtonClose={false}
+    backdrop={true}
+    backdropColor="black"
+    backdropContent={null}
+    backdropOpacity={0.5}
+    backdropPressToClose={true}
+    coverScreen={false}
+    easing={[Function]}
+    isOpen={false}
+    keyboardTopOffset={22}
+    onClosed={[Function]}
+    position="center"
+    startOpen={false}
     style={
       Object {
-        "marginBottom": 20,
+        "alignItems": "center",
+        "aspectRatio": 1.5,
+        "backgroundColor": "#f2f2f2",
+        "borderColor": "rgba(0, 0, 0, 0.3)",
+        "borderRadius": 5,
+        "borderStyle": "solid",
+        "borderWidth": 0.08,
+        "height": 220,
+        "justifyContent": "center",
       }
     }
-  />
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
+    swipeThreshold={50}
+    swipeToClose={true}
+  >
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "color": "#B8B8B8",
+            "fontFamily": "helvetica-neue-md",
+            "fontSize": 12,
+            "marginBottom": 20,
+            "marginLeft": 20,
+            "marginRight": 20,
+          }
+        }
+      >
+         Set your first name and last name to add comments 
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "aspectRatio": 8,
+            "backgroundColor": "white",
+            "borderRadius": 2,
+            "height": 35,
+            "justifyContent": "center",
+            "marginBottom": 15,
+          }
+        }
+      >
+        <TextInput
+          autoCorrect={false}
+          autoFocus={true}
+          onChange={[Function]}
+          onSubmitEditing={[Function]}
+          placeholder="First Name"
+          style={
+            Object {
+              "alignSelf": "center",
+              "aspectRatio": 8,
+              "backgroundColor": "white",
+              "height": 30,
+            }
+          }
+          underlineColorAndroid="transparent"
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "aspectRatio": 8,
+            "backgroundColor": "white",
+            "borderRadius": 2,
+            "height": 35,
+            "justifyContent": "center",
+            "marginBottom": 15,
+          }
+        }
+      >
+        <TextInput
+          autoCorrect={false}
+          onChange={[Function]}
+          placeholder="Last Name"
+          style={
+            Object {
+              "alignSelf": "center",
+              "aspectRatio": 8,
+              "backgroundColor": "white",
+              "height": 30,
+            }
+          }
+          underlineColorAndroid="transparent"
+        />
+      </View>
+      <Button
+        onPress={[Function]}
+        style={
+          Object {
+            "alignSelf": "center",
+            "aspectRatio": 4,
+            "backgroundColor": "#4CC359",
+            "borderColor": "white",
+            "borderRadius": 5,
+            "height": 30,
+            "marginTop": 10,
+          }
+        }
+        title="Set name"
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          disabled={false}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 15,
+            }
+          }
+        >
+          Set name
+        </Text>
+      </Button>
+    </View>
+  </ModalBox>
+  <View
     style={
       Object {
-        "backgroundColor": "transparent",
-        "color": "#B8B8B8",
-        "fontFamily": "helvetica-neue-md",
-        "fontSize": 12,
-        "marginBottom": 20,
-        "marginLeft": 20,
-        "marginRight": 20,
+        "alignSelf": "center",
+        "marginTop": 250,
       }
     }
   >
-    Comments are being fetched.
-  </Text>
+    <ActivityIndicator
+      animating={true}
+      color="#999999"
+      hidesWhenStopped={true}
+      size="large"
+      style={
+        Object {
+          "marginBottom": 20,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "color": "#B8B8B8",
+          "fontFamily": "helvetica-neue-md",
+          "fontSize": 12,
+          "marginBottom": 20,
+          "marginLeft": 20,
+          "marginRight": 20,
+        }
+      }
+    >
+      Comments are being fetched.
+    </Text>
+  </View>
+  <AlertModal
+    animationDuration={0}
+    bottomPosition={60}
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+        },
+        Object {
+          "backgroundColor": "white",
+          "borderTopColor": "#4CC359",
+          "borderTopWidth": 1,
+          "height": 65,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "color": "#4CC359",
+            "fontFamily": "helvetica-neue-md",
+            "fontSize": 10,
+            "left": 20,
+          }
+        }
+      >
+        Share your thoughts:
+      </Text>
+      <TextInput
+        autoFocus={true}
+        onChange={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Add comment"
+        style={
+          Object {
+            "bottom": 0,
+            "height": 40,
+            "marginLeft": 20,
+            "marginRight": 55,
+          }
+        }
+        underlineColorAndroid="transparent"
+      />
+    </View>
+    <TouchableOpacity
+      activeOpacity={0.2}
+      disabled={true}
+      focusedOpacity={0.7}
+      onPress={[Function]}
+      style={
+        Object {
+          "height": 60,
+          "position": "absolute",
+          "right": 15,
+          "width": 30,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#4CC359",
+            "fontSize": 42,
+          }
+        }
+      >
+        &gt;
+      </Text>
+    </TouchableOpacity>
+  </View>
 </View>
 `;
