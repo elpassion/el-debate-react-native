@@ -12,6 +12,9 @@ import Router from './app/routes/Router'
 export default class App extends Component {
   constructor(props) {
     super(props);
+    console.ignoredYellowBox = [
+      'Setting a timer'
+    ];
     this.state = { fontLoaded: false };
     StatusBar.setBarStyle('light-content', true);
   }
