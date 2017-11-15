@@ -98,16 +98,19 @@ export default class DebateDetails extends Component {
   }
 
   render() {
+    const isLastAnswerPositive = this.state.lastAnswerId === this.state.positiveAnswerId
+    const isLastAnswerNegative = this.state.lastAnswerId === this.state.negativeAnswerId
+    const isLastAnswerNeutral  = this.state.lastAnswerId === this.state.neutralAnswerId
     const PositiveIcon =
-      this.state.lastAnswerId === this.state.positiveAnswerId ?
+      isLastAnswerPositive ?
         require('/resources/images/PositiveIcon.png') :
         require('/resources/images/PositiveIconGrey.png')
     const NegativeIcon =
-      this.state.lastAnswerId === this.state.negativeAnswerId ?
+      isLastAnswerNegative ?
         require('/resources/images/NegativeIcon.png') :
         require('/resources/images/NegativeIconGrey.png')
     const NeutralIcon =
-      this.state.lastAnswerId === this.state.neutralAnswerId ?
+      isLastAnswerNeutral ?
         require('/resources/images/NeutralIcon.png') :
         require('/resources/images/NeutralIconGrey.png')
 
@@ -138,7 +141,7 @@ export default class DebateDetails extends Component {
                 style={styles.positiveAnswerIcon}/>
             </TouchableOpacity>
             <View style={styles.progressBar}>
-              <Progress.Bar progress={0} color={'#0098E3'} height={2} width={null} indeterminate={false} borderWidth={0}/>
+              <Progress.Bar progress={isLastAnswerPositive ? 1 : 0} color={'#0098E3'} height={2} width={null} indeterminate={false} borderWidth={0}/>
             </View>
             <TouchableOpacity
               disabled={this.state.answerPressed || !this.state.isFetched }
@@ -152,7 +155,7 @@ export default class DebateDetails extends Component {
                 style={styles.negativeAnswerIcon}/>
             </TouchableOpacity>
             <View style={styles.progressBar}>
-              <Progress.Bar progress={0} color={'#E44043'} height={2} width={null} indeterminate={false} borderWidth={0}/>
+              <Progress.Bar progress={isLastAnswerNegative ? 1 : 0} color={'#E44043'} height={2} width={null} indeterminate={false} borderWidth={0}/>
             </View>
             <TouchableOpacity
               disabled={this.state.answerPressed || !this.state.isFetched }
@@ -166,7 +169,7 @@ export default class DebateDetails extends Component {
                 style={styles.neutralAnswerIcon}/>
             </TouchableOpacity>
             <View style={styles.progressBar}>
-              <Progress.Bar progress={0} color={'#8F8F8F'} height={2} width={null} indeterminate={false} borderWidth={0}/>
+              <Progress.Bar progress={isLastAnswerNeutral ? 1 : 0} color={'#8F8F8F'} height={2} width={null} indeterminate={false} borderWidth={0}/>
             </View>
             <Text style={[styles.description, { marginTop: 20 }]}>
               Remember that you can change your mind before debate ends, thats why we are here!
