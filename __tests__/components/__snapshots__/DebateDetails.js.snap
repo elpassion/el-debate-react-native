@@ -316,7 +316,7 @@ exports[`renders correctly 1`] = `
         style={
           Object {
             "alignSelf": "center",
-            "width": "90%",
+            "width": "85%",
           }
         }
       >
@@ -397,7 +397,7 @@ exports[`renders correctly 1`] = `
         style={
           Object {
             "alignSelf": "center",
-            "width": "90%",
+            "width": "85%",
           }
         }
       >
@@ -478,7 +478,7 @@ exports[`renders correctly 1`] = `
         style={
           Object {
             "alignSelf": "center",
-            "width": "90%",
+            "width": "85%",
           }
         }
       >

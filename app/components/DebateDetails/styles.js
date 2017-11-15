@@ -124,7 +124,7 @@ export default StyleSheet.create({
     color: '#fff'
   },
   progressBar: {
-    width: '90%',
+    width: '85%',
     alignSelf: 'center'
   }
 })
