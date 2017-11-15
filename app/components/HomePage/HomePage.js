@@ -42,6 +42,7 @@ export default class HomePage extends Component {
   };
 
   _onLoginPressed = () => {
+    Keyboard.dismiss()
     this.setState({ isLoading: true, message: '' });
     if (this.state.authToken && (this.state.code === this.state.searchString)) {
       this.props.navigation.navigate('DebateDetails')
