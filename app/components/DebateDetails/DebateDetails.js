@@ -156,7 +156,7 @@ export default class DebateDetails extends Component {
               Choose your side with one of the following:
             </Text>
             <TouchableOpacity
-              disabled={this.state.isLoading || !this.state.isFetched }
+              disabled={isLastAnswerPositive || this.state.isLoading || !this.state.isFetched }
               style={styles.answerBox}
               onPress={(e) => {
                   this._onPressAnswer(this.state.positiveAnswerId);
@@ -172,7 +172,7 @@ export default class DebateDetails extends Component {
               { this.progressBar(isLastAnswerPositive, this.state.positiveAnimationOn, '#0098E3') }
             </View>
             <TouchableOpacity
-              disabled={this.state.isLoading || !this.state.isFetched }
+              disabled={isLastAnswerNegative || this.state.isLoading || !this.state.isFetched }
               style={styles.answerBox}
               onPress={(e) => {
                   this._onPressAnswer(this.state.negativeAnswerId);
@@ -188,7 +188,7 @@ export default class DebateDetails extends Component {
               { this.progressBar(isLastAnswerNegative, this.state.negativeAnimationOn, '#E44043') }
             </View>
             <TouchableOpacity
-              disabled={this.state.isLoading || !this.state.isFetched }
+              disabled={isLastAnswerNeutral || this.state.isLoading || !this.state.isFetched }
               style={styles.answerBox}
               onPress={(e) => {
                   this._onPressAnswer(this.state.neutralAnswerId);
