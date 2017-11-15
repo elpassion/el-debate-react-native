@@ -7,6 +7,8 @@ import HomePage from './app/components/HomePage/HomePage';
 import DebateDetails from './app/components/DebateDetails/DebateDetails';
 import CommentsList from './app/components/CommentsList/CommentsList';
 
+import Router from './app/routes/Router'
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -24,13 +26,7 @@ export default class App extends Component {
   render() {
     if (this.state.fontLoaded) {
       return (
-        <NativeRouter>
-          <View style={styles.container}>
-            <Route exact path='/' component={HomePage}/>
-            <Route path='/debate-details' component={DebateDetails}/>
-            <Route path='/comments-list' component={CommentsList}/>
-          </View>
-        </NativeRouter>
+        <Router/>
       );
     } else {
       return (null);
