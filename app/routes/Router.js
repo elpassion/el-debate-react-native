@@ -4,13 +4,15 @@ import HomePage from '/app/components/HomePage/HomePage';
 import DebateDetails from '/app/components/DebateDetails/DebateDetails';
 import CommentsList from '/app/components/CommentsList/CommentsList';
 
+import { Platform } from 'react-native'
+
 const Router = StackNavigator({
   initialRouteName: {
     screen: HomePage,
     navigationOptions: ({navigation}) => ({
       title: 'EL Debate',
-      headerStyle: { backgroundColor: '#4CC359', borderBottomColor: 'white', height: 80 },
-      headerTitleStyle: { color: 'white', fontSize: 18 },
+      headerStyle: { backgroundColor: '#4CC359', borderBottomColor: 'white', height: (Platform.OS === 'ios') ? 80 : 60 },
+      headerTitleStyle: { color: 'white', fontSize: 18, alignSelf: 'center' },
       headerBackTitle: null,
       headerBackTitleStyle: { color: 'white' },
       headerTintColor: 'white'
@@ -22,7 +24,7 @@ const Router = StackNavigator({
     screen: DebateDetails,
     navigationOptions: ({navigation}) => ({
       title: 'EL Debate',
-      headerStyle: { backgroundColor: '#4CC359', borderBottomColor: 'white', height: 80 },
+      headerStyle: { backgroundColor: '#4CC359', borderBottomColor: 'white', height: (Platform.OS === 'ios') ? 80 : 60 },
       headerTitleStyle: { color: 'white', fontSize: 18 },
       headerBackTitle: null,
       headerBackTitleStyle: { color: 'white' },
@@ -35,7 +37,7 @@ const Router = StackNavigator({
     screen: CommentsList,
     navigationOptions: ({navigation}) => ({
       title: 'EL Debate',
-      headerStyle: { backgroundColor: '#4CC359', borderBottomColor: 'white', height: 80 },
+      headerStyle: { backgroundColor: '#4CC359', borderBottomColor: 'white', height: (Platform.OS === 'ios') ? 80 : 60 },
       headerTitleStyle: { color: 'white', fontSize: 18 },
       headerBackTitle: null,
       headerBackTitleStyle: { color: 'white' },
