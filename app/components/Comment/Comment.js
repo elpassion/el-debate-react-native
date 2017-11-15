@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View, ScrollView, Text, AsyncStorage } from 'react-native';
 import styles from './styles'
-import Navbar from '/app/components/Shared/Navbar'
 import Svg, { Circle } from 'react-native-svg';
 import AlertModal from '/app/components/Shared/AlertModal'
 import Api from '/app/api/Api'
