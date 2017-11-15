@@ -12,7 +12,6 @@ import {
   FlatList
 } from 'react-native';
 import styles from './styles'
-import Navbar from '/app/components/Shared/Navbar'
 import Svg, { Circle } from 'react-native-svg';
 import AlertModal from '/app/components/Shared/AlertModal'
 import Api from '/app/api/Api'
@@ -164,10 +163,7 @@ export default class CommentsList extends Component {
           Comments are being fetched.
         </Text>
       </View> :
-      <View style={StyleSheet.absoluteFill}>
-        <View style={styles.navContainer}>
-          <Navbar history={this.props.history}/>
-        </View>
+      <View style={[StyleSheet.absoluteFill, styles.navContainer]}>
         <Modal
           style={styles.userDetailsModal}
           ref="userDetailsModal"

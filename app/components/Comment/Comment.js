@@ -17,7 +17,7 @@ export default class Comment extends Component {
 
   render() {
     return (
-      <View style={{backgroundColor: false ? '#f7f7f7' : 'transparent'}}>
+      <View style={{backgroundColor: false ? '#f7f7f7' : 'white'}}>
         <View style={styles.comment}>
           <View>
             <Text style={styles.userInitials}>{this.props.userInitials}</Text>
