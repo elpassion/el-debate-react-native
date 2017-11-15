@@ -33,8 +33,10 @@ export default class DebateDetails extends Component {
       lastAnswerId: 0,
       isLoading: false,
       isFetched: false,
-      answerPressed: false,
-      clearId: 0
+      clearId: 0,
+      positiveAnimationOn: false,
+      negativeAnimationOn: false,
+      neutralAnimationOn: false
     }
 
     AsyncStorage.getItem('authToken')
@@ -66,12 +68,23 @@ export default class DebateDetails extends Component {
   }
 
   _onPressAnswer = (answerId) => {
-    this.setState({ isLoading: true, answerPressed: true })
-    Api.vote(this.state.authToken, answerId)
+    this.setState({ isLoading: true })
+    this.setAnimation(answerId, true)
+    setTimeout(() => {Api.vote(this.state.authToken, answerId)
       .then(response => this._handleVote(response, answerId))
       .catch(error =>
         this.refs.alertModal.openModalAlert(error)
-      );
+      );}, 800)
+  }
+
+  setAnimation = (answerId, bool) => {
+    if (this.state.positiveAnswerId === answerId) {
+      this.setState({positiveAnimation: bool})
+    } else if (this.state.negativeAnswerId === answerId) {
+      this.setState({negativeAnimation: bool})
+    } else if (this.state.neutralAnswerId === answerId) {
+      this.setState({neutralAnimation: bool})
+    }
   }
 
   _handleVote = (response, answerId) => {
@@ -81,8 +94,9 @@ export default class DebateDetails extends Component {
     } else if (response.status === 403) {
       this.refs.alertModal.openModalAlert('Debate is closed.')
     }
-    var clearId = setTimeout(() => { this.setState({ answerPressed: false }) }, 500);
-    this.setState({ isLoading: false, clearId: clearId })
+    var clearId = setTimeout(() => { this.setState({ isLoading: false }) }, 800);
+    this.setAnimation(answerId, false)
+    this.setState({ clearId: clearId })
   }
 
   componentWillMount() {
@@ -130,9 +144,11 @@ export default class DebateDetails extends Component {
               Choose your side with one of the following:
             </Text>
             <TouchableOpacity
-              disabled={this.state.answerPressed || !this.state.isFetched }
+              disabled={this.state.isLoading || !this.state.isFetched }
               style={styles.answerBox}
-              onPress={() => this._onPressAnswer(this.state.positiveAnswerId)}>
+              onPress={(e) => {
+                  this._onPressAnswer(this.state.positiveAnswerId);
+              }}>
               <Text style={styles.positiveAnswer}>
                 {this.state.positiveAnswer}
               </Text>
@@ -140,13 +156,15 @@ export default class DebateDetails extends Component {
                 source={PositiveIcon}
                 style={styles.positiveAnswerIcon}/>
             </TouchableOpacity>
-            <View style={styles.progressBar}>
-              <Progress.Bar progress={isLastAnswerPositive ? 1 : 0} color={'#0098E3'} height={2} width={null} indeterminate={false} borderWidth={0}/>
+            <View style={styles.progressBar} ref='positiveBar' {...this.props}>
+              <Progress.Bar progress={isLastAnswerPositive && !this.state.isLoading ? 1 : 0} color={'#0098E3'} height={2} width={null} indeterminate={this.state.positiveAnimationOn} borderWidth={0}/>
             </View>
             <TouchableOpacity
-              disabled={this.state.answerPressed || !this.state.isFetched }
+              disabled={this.state.isLoading || !this.state.isFetched }
               style={styles.answerBox}
-              onPress={() => this._onPressAnswer(this.state.negativeAnswerId)}>
+              onPress={(e) => {
+                  this._onPressAnswer(this.state.negativeAnswerId);
+              }}>
               <Text style={styles.negativeAnswer}>
                 {this.state.negativeAnswer}
               </Text>
@@ -154,13 +172,15 @@ export default class DebateDetails extends Component {
                 source={NegativeIcon}
                 style={styles.negativeAnswerIcon}/>
             </TouchableOpacity>
-            <View style={styles.progressBar}>
-              <Progress.Bar progress={isLastAnswerNegative ? 1 : 0} color={'#E44043'} height={2} width={null} indeterminate={false} borderWidth={0}/>
+            <View style={styles.progressBar} ref='negativeBar' {...this.props}>
+              <Progress.Bar progress={isLastAnswerNegative && !this.state.isLoading ? 1 : 0} color={'#E44043'} height={2} width={null} indeterminate={this.state.negativeAnimationOn} borderWidth={0}/>
             </View>
             <TouchableOpacity
-              disabled={this.state.answerPressed || !this.state.isFetched }
+              disabled={this.state.isLoading || !this.state.isFetched }
               style={styles.answerBox}
-              onPress={() => this._onPressAnswer(this.state.neutralAnswerId)}>
+              onPress={(e) => {
+                  this._onPressAnswer(this.state.neutralAnswerId);
+              }}>
               <Text style={styles.neutralAnswer}>
                 {this.state.neutralAnswer}
               </Text>
@@ -168,8 +188,8 @@ export default class DebateDetails extends Component {
                 source={NeutralIcon}
                 style={styles.neutralAnswerIcon}/>
             </TouchableOpacity>
-            <View style={styles.progressBar}>
-              <Progress.Bar progress={isLastAnswerNeutral ? 1 : 0} color={'#8F8F8F'} height={2} width={null} indeterminate={false} borderWidth={0}/>
+            <View style={styles.progressBar} ref='neutralBar' {...this.props}>
+              <Progress.Bar progress={isLastAnswerNeutral && !this.state.isLoading ? 1 : 0} color={'#8F8F8F'} height={2} width={null} indeterminate={this.state.neutralAnimationOn} borderWidth={0}/>
             </View>
             <Text style={[styles.description, { marginTop: 20 }]}>
               Remember that you can change your mind before debate ends, thats why we are here!
