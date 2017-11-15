@@ -86,7 +86,7 @@ export default class DebateDetails extends Component {
 
   componentWillMount() {
     BackHandler.addEventListener('hardwareBackPress', function() {
-      this.props.history.goBack()
+      this.props.navigation.goBack()
       return true
     }.bind(this))
   }
