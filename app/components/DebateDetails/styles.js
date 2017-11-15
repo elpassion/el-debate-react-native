@@ -2,7 +2,8 @@ import { StyleSheet, Platform } from 'react-native'
 
 export default StyleSheet.create({
   navContainer: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'white'
   },
   main: {
     flex: 1,
@@ -10,7 +11,7 @@ export default StyleSheet.create({
   },
   container: {
     flex: 1,
-    top: (Platform.OS === 'ios') ? 85 : 75,
+    top: 15,
     position: 'absolute'
   },
   description: {

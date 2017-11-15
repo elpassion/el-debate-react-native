@@ -16,7 +16,6 @@ import Button from 'apsl-react-native-button'
 import styles from './styles'
 import Api from '/app/api/Api'
 import AlertModal from '/app/components/Shared/AlertModal'
-import Navbar from '/app/components/Shared/Navbar'
 
 export default class DebateDetails extends Component {
   constructor(props) {
@@ -121,7 +120,6 @@ export default class DebateDetails extends Component {
         </Text>
       </View> :
       <View style={styles.navContainer}>
-        <Navbar history={this.props.history}/>
         <View style={styles.container}>
           <ScrollView style={styles.main}>
             <Text style={styles.description}>
