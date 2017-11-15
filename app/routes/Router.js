@@ -6,7 +6,13 @@ import CommentsList from '/app/components/CommentsList/CommentsList';
 
 const Router = StackNavigator({
   initialRouteName: {
-    screen: HomePage
+    screen: HomePage,
+    navigationOptions: ({navigation}) => ({
+      title: 'EL Debate',
+      headerStyle: { backgroundColor: '#4CC359', borderBottomColor: 'white', height: 80 },
+      headerTitleStyle: { color: 'white', fontSize: 20 }
+    }),
+    cardStyle: { backgroundColor: 'white' }
   },
   DebateDetails: {
     path: 'debate-details',

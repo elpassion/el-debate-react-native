@@ -27,7 +27,7 @@ export default class HomePage extends Component {
       authToken: '',
       code: '',
       footerLocation: 0,
-      imgLocation: 0
+      imgLocation: -80
     };
   }
 
@@ -76,12 +76,12 @@ export default class HomePage extends Component {
 
   keyboardWillShow(e) {
     this.setState({footerLocation: e.endCoordinates.height})
-    this.setState({imgLocation: -50})
+    this.setState({imgLocation: -155})
   }
 
   keyboardWillHide(e) {
     this.setState({footerLocation: 0})
-    this.setState({imgLocation: 0})
+    this.setState({imgLocation: -80})
   }
 
   componentDidMount() {
@@ -109,12 +109,6 @@ export default class HomePage extends Component {
       </View>
     return (
       <View style={styles.navContainer}>
-        <NavigationBar
-          title={'EL Debate'}
-          height={50}
-          titleColor={'#fff'}
-          backgroundColor={'#4CC359'}
-        />
         <View style={styles.container}>
           <ScrollView style={styles.main}>
             <Text style={styles.description}>

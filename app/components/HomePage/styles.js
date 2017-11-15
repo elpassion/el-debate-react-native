@@ -9,14 +9,15 @@ export default styles = StyleSheet.create({
     color: '#656565'
   },
   navContainer: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'white'
   },
   container: {
     flex: 1,
-    top: (Platform.OS === 'ios') ? 100 : 70,
   },
   main: {
-    flex: 1
+    flex: 1,
+    paddingTop: (Platform.OS === 'ios') ? 75 : 70,
   },
   logoImage: {
     width: 106,
@@ -49,7 +50,7 @@ export default styles = StyleSheet.create({
     color: '#8F8F8F',
   },
   button: {
-    bottom: 120,
+    bottom: 20,
     alignSelf: 'center',
     height: (Platform.OS === 'ios') ? 40 : 50,
     width: '80%',
