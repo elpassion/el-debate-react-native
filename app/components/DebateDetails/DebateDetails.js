@@ -10,7 +10,6 @@ import {
   ScrollView,
   TouchableOpacity,
   BackHandler,
-  ActivityIndicator,
 } from 'react-native';
 import Button from 'apsl-react-native-button'
 import styles from './styles'
@@ -112,13 +111,6 @@ export default class DebateDetails extends Component {
         require('/resources/images/NeutralIconGrey.png')
 
     return (
-      !this.state.isFetched ?
-      <View style={styles.loadingView}>
-        <ActivityIndicator size='large' style={styles.activityIndicator}/>
-        <Text style={styles.description}>
-          Debate is being fetched.
-        </Text>
-      </View> :
       <View style={styles.navContainer}>
         <View style={styles.container}>
           <ScrollView style={styles.main}>
@@ -134,7 +126,7 @@ export default class DebateDetails extends Component {
               Choose your side with one of the following:
             </Text>
             <TouchableOpacity
-              disabled={this.state.answerPressed}
+              disabled={this.state.answerPressed || !this.state.isFetched }
               style={styles.answerBox}
               onPress={() => this._onPressAnswer(this.state.positiveAnswerId)}>
               <Text style={styles.positiveAnswer}>
@@ -145,7 +137,7 @@ export default class DebateDetails extends Component {
                 style={styles.positiveAnswerIcon}/>
             </TouchableOpacity>
             <TouchableOpacity
-              disabled={this.state.answerPressed}
+              disabled={this.state.answerPressed || !this.state.isFetched }
               style={styles.answerBox}
               onPress={() => this._onPressAnswer(this.state.negativeAnswerId)}>
               <Text style={styles.negativeAnswer}>
@@ -156,7 +148,7 @@ export default class DebateDetails extends Component {
                 style={styles.negativeAnswerIcon}/>
             </TouchableOpacity>
             <TouchableOpacity
-              disabled={this.state.answerPressed}
+              disabled={this.state.answerPressed || !this.state.isFetched }
               style={styles.answerBox}
               onPress={() => this._onPressAnswer(this.state.neutralAnswerId)}>
               <Text style={styles.neutralAnswer}>

@@ -110,7 +110,7 @@ export default StyleSheet.create({
     marginTop: 15
   },
   button: {
-    bottom: 0,
+    bottom: 10,
     alignSelf: 'center',
     height: (Platform.OS === 'ios') ? 40 : 50,
     width: '80%',
@@ -122,12 +122,5 @@ export default StyleSheet.create({
     fontFamily: 'helvetica-neue-lt',
     fontSize: 14,
     color: '#fff'
-  },
-  loadingView: {
-    alignSelf: 'center',
-    marginTop: 250
-  },
-  activityIndicator: {
-    marginBottom: 20
   }
 })
