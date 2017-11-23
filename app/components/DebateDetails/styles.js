@@ -1,4 +1,5 @@
 import { StyleSheet, Platform } from 'react-native'
+import { ifIphoneX } from 'react-native-iphone-x-helper'
 
 export default StyleSheet.create({
   navContainer: {
@@ -89,7 +90,11 @@ export default StyleSheet.create({
     backgroundColor: 'transparent'
   },
   footer: {
-    bottom: -15
+    ...ifIphoneX({
+      bottom: -150
+    }, {
+      bottom: -15
+    })
   },
   backgroundImage: {
     alignSelf: 'center',
