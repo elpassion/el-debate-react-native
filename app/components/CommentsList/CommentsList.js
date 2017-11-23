@@ -20,6 +20,7 @@ import Pusher from 'pusher-js/react-native';
 import Keyboard from 'Keyboard';
 import Modal from 'react-native-modalbox';
 import Button from 'apsl-react-native-button'
+import { isIphoneX } from 'react-native-iphone-x-helper'
 
 export default class CommentsList extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ export default class CommentsList extends Component {
       data: [],
       isFetched: false,
       commentString: '',
-      inputLocation: 0,
+      inputLocation: isIphoneX() ? 20 : 0,
       authToken: '',
       firstName: '',
       lastName: '',
@@ -73,7 +74,7 @@ export default class CommentsList extends Component {
   }
 
   keyboardWillHide(e) {
-    this.setState({inputLocation: 0})
+    this.setState({inputLocation: isIphoneX() ? 20 : 0})
   }
 
   componentDidMount() {
