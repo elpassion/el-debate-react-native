@@ -121,8 +121,7 @@ export default class HomePage extends Component {
           <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss() }}>
             <View style={{ bottom: this.state.footerLocation }}>
               <Image source={require('/resources/images/backgroundimg.png')}
-                     style={{ bottom: this.state.imgLocation,
-                              alignSelf: 'center' }} />
+                     style={[{ bottom: this.state.imgLocation }, styles.backgroundImage]} />
               <Button onPress={this._onLoginPressed} style={styles.button}>
                 <Text style={styles.buttonText}>
                   Log in

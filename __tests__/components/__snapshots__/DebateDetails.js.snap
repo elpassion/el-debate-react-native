@@ -22,6 +22,7 @@ exports[`DebateDetails 1`] = `
           "flex": 1,
           "paddingTop": 75,
           "top": 0,
+          "zIndex": 2,
         }
       }
     >
@@ -103,10 +104,15 @@ exports[`DebateDetails 1`] = `
         <Image
           source={1}
           style={
-            Object {
-              "alignSelf": "center",
-              "bottom": -80,
-            }
+            Array [
+              Object {
+                "bottom": -80,
+              },
+              Object {
+                "alignSelf": "center",
+                "zIndex": 1,
+              },
+            ]
           }
         />
         <Button
@@ -120,6 +126,7 @@ exports[`DebateDetails 1`] = `
               "bottom": 20,
               "height": 40,
               "width": "80%",
+              "zIndex": 1,
             }
           }
         >
@@ -606,6 +613,7 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
           "flex": 1,
           "paddingTop": 75,
           "top": 0,
+          "zIndex": 2,
         }
       }
     >
@@ -687,10 +695,15 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
         <Image
           source={1}
           style={
-            Object {
-              "alignSelf": "center",
-              "bottom": -80,
-            }
+            Array [
+              Object {
+                "bottom": -80,
+              },
+              Object {
+                "alignSelf": "center",
+                "zIndex": 1,
+              },
+            ]
           }
         />
         <Button
@@ -704,6 +717,7 @@ exports[`renders debate details component if isFetched is true on HomePage 1`] =
               "bottom": 20,
               "height": 40,
               "width": "80%",
+              "zIndex": 1,
             }
           }
         >

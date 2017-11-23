@@ -18,7 +18,8 @@ export default styles = StyleSheet.create({
   main: {
     flex: 1,
     paddingTop: (Platform.OS === 'ios') ? 75 : 0,
-    top: (Platform.OS === 'ios') ? 0 : 60
+    top: (Platform.OS === 'ios') ? 0 : 60,
+    zIndex: 2
   },
   logoImage: {
     width: 106,
@@ -51,6 +52,7 @@ export default styles = StyleSheet.create({
     color: '#8F8F8F',
   },
   button: {
+    zIndex: 1,
     bottom: 20,
     alignSelf: 'center',
     height: (Platform.OS === 'ios') ? 40 : 50,
@@ -68,5 +70,9 @@ export default styles = StyleSheet.create({
     position: 'relative',
     left: (Platform.OS === 'ios') ? 45 : 55,
     bottom: (Platform.OS === 'ios') ? 30 : 40
+  },
+  backgroundImage: {
+    alignSelf: 'center',
+    zIndex: 1
   }
 })
