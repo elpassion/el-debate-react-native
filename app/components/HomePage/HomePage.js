@@ -17,6 +17,7 @@ import NavigationBar from 'react-native-navigation-bar';
 import Api from '/app/api/Api'
 import Keyboard from 'Keyboard';
 import AlertModal from '/app/components/Shared/AlertModal'
+import SvgImage from '/app/components/Svg/SvgImage';
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -106,7 +107,9 @@ export default class HomePage extends Component {
           placeholder='EL Debate PIN'
           returnKeyType = 'done'
           onSubmitEditing={this._onLoginPressed}/>
-          <Image style={styles.keyIcon} source={require('/resources/images/keyicon.png')}/>
+          <View style={styles.keyIcon}>
+            <SvgImage align="baseline" width={40} height={40} source="https://gist.githubusercontent.com/jestemkarol/3277d446a08f4d31e6b68e9c76a0591d/raw/cd1afdc3cbfe51d388df70843accfa762cc7c5c8/key.svg"/>
+          </View>
       </View>
     return (
       <View style={styles.navContainer}>
@@ -115,7 +118,9 @@ export default class HomePage extends Component {
             <Text style={styles.description}>
               Welcome to
             </Text>
-            <Image style={styles.logoImage} source={require('/resources/images/logo.png')}/>
+            <View>
+              <SvgImage align="center" width={106} height={50} source="https://gist.githubusercontent.com/jestemkarol/6042ac8b21ad22e7c5280a8321be4ad1/raw/82d7bcf4bef6e51ed181b61f3e2e2c56996fd215/logo.svg"/>
+            </View>
             {CodeInput}
           </ScrollView>
           <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss() }}>
