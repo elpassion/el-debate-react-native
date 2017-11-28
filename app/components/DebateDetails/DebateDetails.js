@@ -116,7 +116,7 @@ export default class DebateDetails extends Component {
       <Progress.Bar
         progress={isLastAnswer && !this.state.isLoading ? 1 : 0}
         color={color}
-        height={2}
+        height={1}
         width={null}
         indeterminate={animationOn} borderWidth={0}
       />

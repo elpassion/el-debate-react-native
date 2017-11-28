@@ -55,7 +55,7 @@ export default StyleSheet.create({
     borderColor: 'rgba(0, 0, 0, 0.3)',
     borderRadius: 5,
     borderStyle: 'solid',
-    borderWidth: (Platform.OS === 'ios') ? 0.08 : 0.3,
+    borderWidth: (Platform.OS === 'ios') ? 0.08 : 0.5,
     marginTop: 20,
     flex: 1,
     flexDirection: 'row',
@@ -129,7 +129,8 @@ export default StyleSheet.create({
     color: '#fff'
   },
   progressBar: {
-    width: '85%',
-    alignSelf: 'center'
+    width: '87%',
+    alignSelf: 'center',
+    marginTop: -0.5
   }
 })
